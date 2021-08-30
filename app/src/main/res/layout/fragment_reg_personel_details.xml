@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/btn_l"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="@dimen/activity_horizontal_margin">
+
+        <Button
+            android:id="@+id/signup_button"
+            style="@style/CustomBlueButton"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/sign_up_text" />
+    </FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/insidePB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_l"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:fitsSystemWindows="true">
+
+        <!--   <androidx.cardview.widget.CardView
+               android:id="@+id/card_view"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_marginLeft="@dimen/activity_horizontal_margin"
+               android:layout_marginTop="@dimen/activity_horizontal_margin"
+               android:layout_marginRight="@dimen/activity_horizontal_margin"
+               android:layout_marginBottom="@dimen/activity_horizontal_margin"
+               android:layout_weight="1"
+               android:elevation="4dp"
+               card_view:cardBackgroundColor="@color/black"
+               card_view:cardCornerRadius="10dp"
+               tools:targetApi="lollipop">
+   -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/ten_dp"
+            android:orientation="vertical"
+            tools:context=".register.RegPersonelDetails">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:fontFamily="@font/avenir_regular"
+                    android:hint="@string/enter_your_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapWords"
+                    android:nextFocusForward="@id/enter_ph_no"
+                    android:singleLine="true"
+                    android:textColor="@color/accent"
+                    android:textColorHint="@color/grey_light" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_ph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_ph_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/avenir_regular"
+                    android:hint="@string/enter_mobile_number"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:nextFocusForward="@id/enter_age"
+                    android:singleLine="true"
+                    android:textColor="@color/accent"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/avenir_regular"
+                android:paddingLeft="5dp"
+                android:text="@string/veridy_mobile_msg"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/avenir_regular"
+                    android:singleLine="true"
+                    android:hint="@string/enter_your_age"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textColor="@color/accent"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_marginBottom="@dimen/ten_dp"
+                android:fontFamily="@font/avenir_regular"
+                android:paddingLeft="5dp"
+                android:text="@string/select_gender_t"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <RadioGroup
+                android:id="@+id/radioSex"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/ten_dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/male"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+
+                <RadioButton
+                    android:id="@+id/radioF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/female"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+
+                <RadioButton
+                    android:id="@+id/radioT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="2"
+                    android:checked="false"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/lgbt"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/gender_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/avenir_regular"
+                android:paddingLeft="5dp"
+                android:text="@string/select_gender"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="12dp"
+                android:visibility="gone" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.@"
+                    android:fontFamily="@font/avenir_regular"
+                    android:hint="@string/enter_your_email"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"
+
+                    android:inputType="text"
+                    android:textColor="@color/accent"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_prof"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/black"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_profesn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_regular"
+                    android:hint="@string/enter_your_profession"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapWords"
+
+                    android:textColor="@color/accent"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_income"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/black"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_income"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/avenir_regular"
+                    android:hint="@string/enter_your_monthly_income"
+                    android:imeOptions="actionNext"
+
+                    android:inputType="number"
+                    android:textColor="@color/accent"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/black"
+                app:passwordToggleDrawable="@drawable/ic_show_password"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/dark_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.-$#&amp;*!"
+                    android:fontFamily="@font/avenir_regular"
+                    android:hint="@string/password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+
+                    android:maxLength="10"
+                    android:textColor="@color/accent"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_cfm_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/black"
+                app:passwordToggleDrawable="@drawable/ic_show_password"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_cfm_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.-$#&amp;*!"
+                    android:fontFamily="@font/avenir_regular"
+                    android:hint="@string/confirm_password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:textColor="@color/accent"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_marginBottom="@dimen/ten_dp"
+                android:fontFamily="@font/avenir_regular"
+                android:paddingLeft="5dp"
+                android:text="@string/education"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:visibility="gone" />
+
+            <RadioGroup
+                android:id="@+id/radioEdu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/ten_dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/radio_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/high_school"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioInter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/intermediate"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioGrad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/graduate"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioPostGrad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text="@string/post_grad"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/avenir_regular"
+                android:gravity="center_vertical"
+                android:text="Area: Akota"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/black"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/avenir_regular"
+                android:gravity="center_vertical"
+                android:text="City: Vadodara"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/black"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkedtnc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:fontFamily="@font/avenir_regular"
+                    android:text=""
+                    android:textColor="@color/lush_lava" />
+
+                <TextView
+                    android:id="@+id/text_tc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/agree_to_terms_amp_conditions"
+                    android:textColor="@color/lush_lava" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <!--  </androidx.cardview.widget.CardView>-->
+    </ScrollView>
+
+
+</RelativeLayout>

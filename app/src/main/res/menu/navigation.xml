@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/nav_social"
+        android:icon="@drawable/ic_home"
+        android:title="Get Social" />
+
+    <item
+        android:id="@+id/nav_book"
+        android:icon="@drawable/ic_home"
+        android:title="@string/book_a_time" />
+    <item
+        android:id="@+id/nav_lqp"
+        android:icon="@drawable/ic_home"
+        android:title="@string/live_queue_status" />
+    <item
+        android:id="@+id/nav_scan"
+        android:icon="@drawable/ic_home"
+        android:title="@string/scan_qr" />
+</menu>
+

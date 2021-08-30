@@ -1,3 +1,278 @@
 <resources>
     <string name="app_name">JullayBrandApp</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="reg_persnl_details">Type Personal Details</string>
+    <string name="update_persnl_details">Update Personal Details</string>
+    <string name="enter_your_name">Type Your Name</string>
+    <string name="enter_your_surname">Type your Surname</string>
+    <string name="verify">Verify</string>
+    <string name="enter_your_age">Type Your Age</string>
+    <string name="enter_your_email">Type Your Email</string>
+    <string name="enter_mobile_number">Type Your Mobile No.</string>
+    <string name="password">Create Password (8 Characters min.)</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="verify_otp">OTP Verification</string>
+    <string name="agree_to_terms_amp_conditions">I <![CDATA[Agree to Terms & Conditions]]></string>
+    <string name="signup">New to JULLAY?</string>
+    <string name="or">OR</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="send_request">Send request</string>
+    <string name="my_profile">Profile</string>
+    <string name="about_jullay">About Us</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="change_password">Change Password</string>
+    <string name="help">Help</string>
+    <string name="menuactivity">MenuActivity</string>
+    <string name="confirm_appointment">Confirm QAT</string>
+    <string name="select_qat">Check QAT</string>
+    <string name="select_serv">Select Services</string>
+    <string name="age">Age :</string>
+    <string name="e_mail">E-Mail :</string>
+    <string name="mobile_no">Mobile No. :</string>
+    <string name="city">City :</string>
+    <string name="select_sub_cat">Select Subcategory</string>
+    <string name="search_specialist">Search A Specialist</string>
+    <string name="services">Services</string>
+    <string name="profile">Profile</string>
+    <string name="book_appointment">Book a Time</string>
+    <string name="history">History</string>
+    <string name="edit_my_favourites">Edit My Favourites</string>
+    <string name="select_a_specialist">Select A Specialist</string>
+    <string name="converation">Offers</string>
+    <string name="network_error_text">Some system/network error occur. Try again.</string>
+    <string name="err_msg_name">Please use only alphabets or letters. Numbers, @, #, $, %, etc.. are not allowed.</string>
+    <string name="err_msg_email">Ooops! It seems e-mail format is not correct. It should be like: xyz@abcd.com(@ and .com are necessary)</string>
+    <string name="err_msg_password">Please enter the correct password. You may use that eye button for ease. If you don\'t remember it, then click on \'Forgot Password\' and set a new password.</string>
+    <string name="err_msg_reg_password">Please check that password is having atleast 8 characters. For eg.. Jullay12. OR it seems that password typed in both the boxes are not same. Please correct it. You may use that eye button for ease.</string>
+    <string name="err_msg_tnc"><![CDATA[Hey! Please check T&C box. We hope that you had read it, too.]]></string>
+    <string name="err_msg_age">Type your age (in Years)</string>
+    <string name="err_msg_phone">Oops! Your mobile no. is not having 10 digits/no.s. Please check and retype it again.</string>
+    <string name="err_Password_check">Passwords do not match</string>
+    <string name="err_msg_otp">The OTP entered by you is wrong. Please check again the SMS sent to you.</string>
+    <string name="select_gender">Please select Gender</string>
+    <string name="select_language_text">Select Language for App</string>
+    <string name="hindi">Hindi</string>
+    <string name="english">English</string>
+    <string name="gujarati">Gujarati</string>
+    <string name="enter_current_password">Type current Password</string>
+    <string name="enter_new_password">Type new Password</string>
+    <string name="pwd_length_error">Password length must be 8 Characters.</string>
+    <string name="about_us">Fathom means "understanding (a difficult problem) after much thought". With such aptitude, we have crafted this utilitarian app. A difficult problem that we have solved is of "Waiting Time" - which is very annoying and displeasing. With the aid of advanced, scientific queuing models and algorithms \'waiting time\' had been reduced to negligible. \nUnlike many appointment booking apps, Jullay is a time management app. It provides you real-time progress of the queue. So that, you can plan your visit with zero waiting time; utilize your (used-to-be) waiting time for completing other chores and tasks; get more time to enjoy weekends and life; and much more. \nWe have made it possible by collaborating with your favourite service providers: Salon, Doctors, Car Wash, Consultants like CA, Lawyers, etc.., Labs, and such more.</string>
+    <string name="forgot_password">Forgot Password</string>
+    <!-- FB CODE-->
+    <string name="facebook_app_id">1343659985787676</string>
+    <string name="fb_login_protocol_scheme">fb1343659985787676</string>
+    <string name="retry">Retry</string>
+    <string name="cancel">No</string>
+    <string name="ok">OK</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="lgbt">Transgender</string>
+    <string name="high_school">10th</string>
+    <string name="intermediate">12th</string>
+    <string name="graduate">Graduate</string>
+    <string name="post_grad">Post-Grad.</string>
+    <string name="resend_otp"><u>Did not receive the OTP? Send again.</u></string>
+    <string name="enter_your_profession">Type Your Profession</string>
+    <string name="live_queue_status">Live Queue Progress</string>
+    <string name="company_website">Company \nWebsite:</string>
+    <string name="company_website_add"><a href="https://sixhatsfathoms.in">https://sixhatsfathoms.in</a></string>
+    <string name="select_category">Categories</string>
+    <string name="login">Login</string>
+    <string name="passcode">OTP:</string>
+    <string name="close">Close</string>
+    <string name="select_total_no_of_persons">How many Persons?</string>
+    <string name="done">Done</string>
+    <string name="slect_ny_profsnl">Select Professional/Specialist</string>
+    <string name="error_staff_slectsn">Please select the Professionals for each Services selected.</string>
+    <string name="select_booking_type">Select Reservation Type</string>
+    <string name="people_ahead">People\nAhead</string>
+    <string name="delay">(mins)\nDelay</string>
+    <string name="jullay">Jullay!</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="cancel_Serv_msg">Do you really want to CANCEL this service?</string>
+    <string name="enter_your_registered_phone_number">Enter your registered mobile number to receive Forgot Password OTP over E-mail linked to this mobile number.</string>
+    <string name="reset_heading">Reset your password, with the OTP received on your registered phone number.</string>
+
+
+    <!--
+        This is the name that users will see when interacting with this channel.
+        It should describe the category of notifications that will be sent through this channel
+     -->
+    <!-- [START fcm_default_icon_string] -->
+    <!-- [END fcm_default_icon_string] -->
+    <string name="select_favs">Select your Favorites</string>
+    <string name="mins">mins</string>
+    <string name="pwd_chnage_succss_msg">Your password is successfully changed</string>
+    <string name="staff_specific_booking">Reserve Specialist</string>
+    <string name="time_specific_booking">Reserve QAT</string>
+    <string name="usefulness_ss"><b>Usefulness:</b>\nWhen you want to choose different professional/specialist for each of the different services.\n\nFor e.g.: Threading by some professional X, Haircut by someone else, Facial by some third different professional, and so on.</string>
+    <string name="idle_time_ss"><b>Idle Time:</b>\n<font color="#FF4500">YES!</font> This Reservation Type may have some idle time in between different services. Like, there might be 20 minutes of idle time between threading and haircut. It all depends on the availability of time with each of the professional/specialist.</string>
+    <string name="usefulness_ts"><b>Usefulness:</b>\nWhen you want to get all the services done by single professional/specialist. That is haircut, beard trimming, shampoo, etc.. all by single professional/specialist.</string>
+    <string name="idle_time_ts"><b>Idle Time:</b>\n<font color="#4CAF50">NO!</font> This Reservation Type does not have any Idle Time as all the services are performed by single professional/specialist one after the other.</string>
+    <string name="hw_many_help">These are the total no. of persons who are in need of reserving a time or services.\n\nFor e.g.: Relative along with a patient does not means selection of 2 persons. Select 2 if only there are 2 patients who want to consult the doctor. Same is in the case of Salon.\nThus, select total no. of persons accordingly i.e as per the actual no. of persons who will avail the services.</string>
+
+    <!--scanner string-->
+    <string name="pref_key_rear_camera_preview_size" translatable="false">rcpvs</string>
+    <string name="pref_key_rear_camera_picture_size" translatable="false">rcpts</string>
+    <string name="pref_key_front_camera_preview_size" translatable="false">fcpvs</string>
+    <string name="pref_key_front_camera_picture_size" translatable="false">fcpts</string>
+    <string name="pref_key_camera_live_viewport" translatable="false">clv</string>
+
+    <!-- Strings for object detector enable multiple objects preference. -->
+    <string name="pref_title_object_detector_enable_multiple_objects">Enable multiple objects</string>
+    <string name="pref_key_live_preview_object_detector_enable_multiple_objects" translatable="false">lpodemo</string>
+    <string name="pref_key_still_image_object_detector_enable_multiple_objects" translatable="false">siodemo</string>
+
+    <!-- Strings for object detector enable classification preference. -->
+    <string name="pref_title_object_detector_enable_classification">Enable classification</string>
+    <string name="pref_key_live_preview_object_detector_enable_classification" translatable="false">lpodec</string>
+    <string name="pref_key_still_image_object_detector_enable_classification" translatable="false">siodec</string>
+
+    <!-- Strings for face detector contour mode preference. -->
+    <string name="pref_key_live_preview_face_detection_contour_mode" translatable="false">lpfdcm</string>
+    <!-- The following entry values must match the ones in FirebaseVisionFaceDetectorOptions#ContourMode -->
+
+    <!-- Strings for face detector classification mode preference. -->
+    <string name="pref_key_live_preview_face_detection_classification_mode" translatable="false">lpfdcfm</string>
+    <!-- The following entry values must match the ones in FirebaseVisionFaceDetectorOptions#ClassificationMode -->
+
+    <!-- Strings for face detector performance mode preference. -->
+    <string name="pref_key_live_preview_face_detection_performance_mode" translatable="false">lpfdpm</string>
+    <!-- The following entry values must match the ones in FirebaseVisionFaceDetectorOptions#PerformanceMode -->
+
+    <!-- Strings for face detector face tracking preference. -->
+    <string name="pref_key_live_preview_face_detection_face_tracking" translatable="false">lpfdft</string>
+
+    <!-- Strings for face detector min face size preference. -->
+    <string name="pref_key_live_preview_face_detection_min_face_size" translatable="false">lpfdmfs</string>
+    <string name="pref_toast_invalid_min_face_size">Minimum face size must be a float value and in the range [0.0, 1.0]</string>
+
+    <!-- Strings for automl remote model name preference. -->
+    <string name="pref_key_live_preview_automl_remote_model_name" translatable="false">lparmn</string>
+
+    <!-- Strings for automl model choices preference. -->
+    <string name="pref_entries_automl_models_local">Local</string>
+    <string name="pref_key_live_preview_automl_remote_model_choices" translatable="false">lparmc</string>
+    <!-- Settings related strings. -->
+    <string name="pref_category_object_detection">Object detection</string>
+    <string name="pref_category_key_camera" translatable="false">pckc</string>
+    <string name="pref_title_rear_camera_preview_size">Rear camera preview size</string>
+    <string name="pref_title_front_camera_preview_size">Front camera preview size</string>
+    <string name="pref_title_camera_live_viewport">Enable live viewport</string>
+    <string name="pref_summary_camera_live_viewport">Do not block camera preview drawing on detection</string>
+    <string name="pref_category_title_camera">Camera</string>
+    <string name="pref_key_live_preview_face_detection_landmark_mode" translatable="false">lpfdlm</string>
+    <string name="bkng_wait_msg">We are finding the best possible QAT(Quickest Available Time) for you…</string>
+    <string name="please_wait">Please wait</string>
+    <string name="forgot_pwd_msg">Type your registered Mobile No. to help us identify you.</string>
+    <string name="submit">Submit</string>
+    <string name="booking_time_over">You missed it. Try making reservation again.</string>
+    <string name="my_favourites">My Favourites</string>
+    <string name="live_queue_progress">Live Queue Progress</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+
+    <!-- Example settings for Data & Sync -->
+
+    <string name="morning">Morning</string>
+
+    <string name="update">Update</string>
+
+    <string name="education">Education</string>
+
+    <string name="profession">Profession</string>
+
+    <string name="share_expience">Share your experience with Others!</string>
+    <string name="share_feedback">Share your Feedback with Others!</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
+    <string name="my_appointments">My Reservations</string>
+    <string name="country">Country :</string>
+    <string name="sign_out">Sign-Out</string>
+    <string name="persons_ahead">Persons Ahead:</string>
+    <string name="ets">Service Duration</string>
+    <string name="fee">Bill Amount</string>
+    <string name="selected_staff">Selected Professional/Specialist:</string>
+    <string name="confirm_q_a_ts">Confirm Q.A.Ts</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="enter_otp">Type OTP sent to your registered mobile number. </string>
+    <string name="my_favourite">My Favourite</string>
+    <string name="book_a_time">Book</string>
+    <string name="enter_your_monthly_income">Type your monthly income</string>
+    <string name="select_time">Select the time.</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="persons">Persons</string>
+    <string name="error_confirm_pressed">Please select QAT to confirm Reservation for</string>
+    <string name="internet_error">There seems to an Network error, Please check your Internet is turn on.</string>
+    <string name="sign_up_text">Sign Up</string>
+    <string name="evening">Evening</string>
+    <string name="afternoon">Afternoon</string>
+    <string name="night">Night</string>
+    <string name="select_time_zone">Select Time Zone</string>
+    <string name="loader_signup_msg">Thank you! Please wait while we are registering you.</string>
+    <string name="resend_otp_error_msg">There was an issue sending the OTP, Please try again.</string>
+    <string name="no_appointms">You have not made any \nreservations yet.</string>
+    <string name="no_fav_added">No favorites added yet.</string>
+    <string name="for_text">For:</string>
+    <string name="when_text">When?</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="selected_services">Services Selected:</string>
+    <string name="title_activity_main_bae">MainActivity</string>
+    <string name="home">Home</string>
+    <string name="book_services">Book Services</string>
+    <string name="book_q_a_t">Reserve \nQAT</string>
+    <string name="book_q_a_t_btn">Check QAT</string>
+    <string name="type_password">Type Password</string>
+    <string name="reshedule">Reshedule</string>
+    <string name="sort">Sort</string>
+    <string name="filter">Filter</string>
+    <string name="best_rated">Best Rated</string>
+    <string name="nearest">Nearest</string>
+    <string name="sort_by">Sort By:</string>
+    <string name="apply">Apply</string>
+    <string name="book_specialist">Reserve \nSpecialist</string>
+    <string name="veridy_mobile_msg">Verification OTP will be sent on this Mobile Number.</string>
+    <string name="select_gender_t">Select Gender</string>
+    <string name="next">Next</string>
+    <string name="gender">Gender</string>
+    <string name="appt_details_heading">Reservation Details</string>
+    <string name="no_comp_appts">You do not have any Completed Reservations</string>
+    <string name="confirm_qat">Confirm QAT</string>
+    <string name="no_qats_message">We could not find any QATs.\n\n1. Total Service Duration of the services selected does not fit into any of the QATs available.\n2. Service Provider is houseful for the day.\n\nTry reservation for tomorrow or day after tomorrow.</string>
+    <string name="no_staffs_message">We could not find any QATs.\n\n1. Total Service Duration of the services selected does not fit into any of the QATs available with selected Professional/Specialist.\n2. One or more of the selected Professional/Specialist is houseful for the day.\n\nTry reservation for tomorrow or day after tomorrow.</string>
+    <string name="ops">Ooops!</string>
+    <string name="quickest_available_time">QAT stands for\nQuickest Available Time.\n\nIt helps you to quickly avail the professional services without any waiting time.</string>
+    <string name="confirm">Confirm</string>
+    <string name="timer_msg">You have only 20 seconds to select QAT</string>
+    <string name="alert">Alert</string>
+    <string name="incorrect_otp">Incorrect OTP. Enter again.</string>
+    <string name="appt_alarm_msg">You have a reservation at </string>
+    <string name="mins_left">. You have 30 Mins left for reservation.</string>
+    <string name="settings_icon_path">M19.43,12.98c0.04,-0.32 0.07,-0.64 0.07,-0.98s-0.03,-0.66 -0.07,-0.98l2.11,-1.65c0.19,-0.15 0.24,-0.42 0.12,-0.64l-2,-3.46c-0.12,-0.22 -0.39,-0.3 -0.61,-0.22l-2.49,1c-0.52,-0.4 -1.08,-0.73 -1.69,-0.98l-0.38,-2.65C14.46,2.18 14.25,2 14,2h-4c-0.25,0 -0.46,0.18 -0.49,0.42l-0.38,2.65c-0.61,0.25 -1.17,0.59 -1.69,0.98l-2.49,-1c-0.23,-0.09 -0.49,0 -0.61,0.22l-2,3.46c-0.13,0.22 -0.07,0.49 0.12,0.64l2.11,1.65c-0.04,0.32 -0.07,0.65 -0.07,0.98s0.03,0.66 0.07,0.98l-2.11,1.65c-0.19,0.15 -0.24,0.42 -0.12,0.64l2,3.46c0.12,0.22 0.39,0.3 0.61,0.22l2.49,-1c0.52,0.4 1.08,0.73 1.69,0.98l0.38,2.65c0.03,0.24 0.24,0.42 0.49,0.42h4c0.25,0 0.46,-0.18 0.49,-0.42l0.38,-2.65c0.61,-0.25 1.17,-0.59 1.69,-0.98l2.49,1c0.23,0.09 0.49,0 0.61,-0.22l2,-3.46c0.12,-0.22 0.07,-0.49 -0.12,-0.64l-2.11,-1.65zM12,15.5c-1.93,0 -3.5,-1.57 -3.5,-3.5s1.57,-3.5 3.5,-3.5 3.5,1.57 3.5,3.5 -1.57,3.5 -3.5,3.5z</string>
+    <string name="forgot_pwd_sucs_msg">Forgot Password OTP has been sent to your registered E-mail.</string>
+    <string name="no_notifications_for_the_day">No Notifications for the day.</string>
+    <string name="no_reservation">No Reservation</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="confirm_appt_loader_text">Confirming your reservation...</string>
+    <string name="no_staff_availablke">Currently there are no professional/specialist available for the SELECTED SERVICE/S. Choose other services. Or try for tomorrow.</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

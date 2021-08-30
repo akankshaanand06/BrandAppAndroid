@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jullay.users.fragments.RegPersonelDetails">
+
+ <!--   <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:elevation="4dp"
+        card_view:cardBackgroundColor="@color/mustard"
+        card_view:cardCornerRadius="10dp"
+        tools:targetApi="lollipop">
+-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            tools:context=".register.RegPersonelDetails">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_dtp"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorAccent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_otp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_regular"
+                    android:hint="@string/enter_otp"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:textColorHint="@color/colorAccent"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/resend_otp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/avenir_regular"
+                android:text="@string/resend_otp"
+                android:padding="@dimen/ten_dp"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/dark_text"
+                android:singleLine="true"
+                android:gravity="center_horizontal"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+<!--    </androidx.cardview.widget.CardView>-->
+
+
+
+    <FrameLayout
+        android:id="@+id/btn_l"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/gradiant"
+        android:paddingTop="@dimen/ten_dp">
+
+        <Button
+            android:id="@+id/verify"
+            android:layout_gravity="center"
+            style="@style/CustomButton"
+            android:text="@string/verify" />
+    </FrameLayout>
+</RelativeLayout>
