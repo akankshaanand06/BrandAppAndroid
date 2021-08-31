@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="reg_persnl_details">Type Personal Details</string>
+    <string name="reg_persnl_details">Join Us Today</string>
     <string name="update_persnl_details">Update Personal Details</string>
     <string name="enter_your_name">Type Your Name</string>
     <string name="enter_your_surname">Type your Surname</string>
@@ -97,7 +97,7 @@
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="cancel_Serv_msg">Do you really want to CANCEL this service?</string>
-    <string name="enter_your_registered_phone_number">Enter your registered mobile number to receive Forgot Password OTP over E-mail linked to this mobile number.</string>
+    <string name="enter_your_registered_phone_number">Enter your registered mobile number to receive Forgot Password OTP.</string>
     <string name="reset_heading">Reset your password, with the OTP received on your registered phone number.</string>
 
 
@@ -273,6 +273,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="otp_text_content">Enter the 6 Digit OTP sent to your registered Mobile Number.</string>
 
 
 </resources>

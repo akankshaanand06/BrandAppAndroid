@@ -7,9 +7,10 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="lush_lava">#8A8A8A</color>
+    <color name="black">#424242</color>
+    <color name="black_light">#494949</color>
+    <color name="white">#BAFFFFFF</color>
+    <color name="lush_lava">#FF4500</color>
 
     <color name="lush_lava_90">#E6FF4500</color>
     <color name="grey_light">#E6B3B3B3</color>

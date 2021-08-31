@@ -4,9 +4,9 @@ package com.six.hats.brand.util;
 public interface JullayConstants {
 
 
-    String BASE_URL = "http://13.233.106.113:8080/";//aws testing
+    //String BASE_URL = "http://13.233.106.113:8080/";//aws testing
     //String BASE_URL = "https://sixhatsfathoms.com/";// AWS Live
-    //String BASE_URL = "http://10.0.2.2:8080/";//local
+    String BASE_URL = "http://192.168.1.12:8080/";//local
 
 
     int STAFF_SPECIFIC = 1;

@@ -13,6 +13,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.six.hats.brand.AboutUsActivity;
 import com.six.hats.brand.R;
 import com.six.hats.brand.fragments.HomeFragment;
 
@@ -58,23 +59,22 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.mview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (position) {
-                    case 0:
-                        /*Intent web = new Intent(context, WhatsWebActivity.class);
-                        context.startActivity(web);*/
-
+                switch (homeItems.get(position).getHome_name()) {
+                    case "About Us":
+                        Intent web = new Intent(context, AboutUsActivity.class);
+                        context.startActivity(web);
                         break;
                  /*   case 1:
                         Intent statusSaver = new Intent(context, StatusSaver.class);
                         context.startActivity(statusSaver);
 
                         break;*/
-                    case 1:
+                    case "":
                       /*  Intent noti = new Intent(context, SocialNotificationActivity.class);
                         context.startActivity(noti);*/
                         break;
 
-                    case 2:
+                    case "2":
                        /* Intent directMsg = new Intent(context, DirectMessage.class);
                         context.startActivity(directMsg);*/
                         break;

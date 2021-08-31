@@ -102,9 +102,22 @@ public class HomeFragment extends Fragment {
 
 
         homeItemList.add(item1);
-        //homeItemList.add(item2);
+        homeItemList.add(item2);
         homeItemList.add(item3);
         homeItemList.add(item4);
+        homeItemList.add(item5);
+        homeItemList.add(item6);
+        homeItemList.add(item7);
+        homeItemList.add(item8);
+        homeItemList.add(item9);
+        homeItemList.add(itema);
+        homeItemList.add(itemb);
+        homeItemList.add(itemc);
+        homeItemList.add(itemd);
+        homeItemList.add(iteme);
+        homeItemList.add(itemf);
+        homeItemList.add(itemg);
+        homeItemList.add(itemh);
         adapter.notifyData(homeItemList);
         return homeItemList;
     }

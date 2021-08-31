@@ -1,3 +1,4 @@
+
 package com.six.hats.brand.register;
 
 import android.app.ProgressDialog;
@@ -9,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.six.hats.brand.R;
+import com.six.hats.brand.util.JullayConstants;
+import com.six.hats.brand.util.PrefsWrapper;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -17,6 +20,8 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_registration);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -24,6 +29,8 @@ public class RegistrationActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // ServiceItemFragment fragment= new ServiceItemFragment();
             //SelectQATFragment fragment= new SelectQATFragment();
+
+
             String page = getIntent().getStringExtra("page");
             if (page.equalsIgnoreCase("signup")) {
                 RegistrationActivity.replaceFragmentHistory(new RegPersonelDetails(), this);
@@ -32,7 +39,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 String ph = getIntent().getStringExtra("ph");
                 String pwd = getIntent().getStringExtra("pwd");
                 RegistrationActivity.replaceFragmentHistory(new RegOTPVerifylDetails().newInstance(ph, pwd), this);
-
 
             }
         }

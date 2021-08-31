@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:paddingTop="@dimen/activity_horizontal_margin">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signup_button"
             style="@style/CustomBlueButton"
             android:layout_gravity="center_horizontal"
@@ -44,7 +44,7 @@
                android:layout_marginBottom="@dimen/activity_horizontal_margin"
                android:layout_weight="1"
                android:elevation="4dp"
-               card_view:cardBackgroundColor="@color/black"
+               card_view:cardBackgroundColor="@color/black_light"
                card_view:cardCornerRadius="10dp"
                tools:targetApi="lollipop">
    -->
@@ -55,19 +55,22 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="@dimen/ten_dp"
             android:orientation="vertical"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
             tools:context=".register.RegPersonelDetails">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginBottom="10dp"
-                android:textColorHint="@color/black">
+                android:textColorHint="@color/black_light"
+                android:theme="@style/TextInputLayoutAccent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/enter_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_white_bg"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                     android:fontFamily="@font/avenir_regular"
                     android:hint="@string/enter_your_name"
@@ -82,14 +85,16 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_ph"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginBottom="10dp"
-                android:textColorHint="@color/black">
+                android:textColorHint="@color/black_light"
+                android:theme="@style/TextInputLayoutAccent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/enter_ph_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_white_bg"
                     android:digits="0123456789"
                     android:fontFamily="@font/avenir_regular"
                     android:hint="@string/enter_mobile_number"
@@ -99,7 +104,7 @@
                     android:nextFocusForward="@id/enter_age"
                     android:singleLine="true"
                     android:textColor="@color/accent"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/black_light" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -109,30 +114,32 @@
                 android:fontFamily="@font/avenir_regular"
                 android:paddingLeft="5dp"
                 android:text="@string/veridy_mobile_msg"
-                android:textColor="@color/black"
+                android:textColor="@color/accent"
                 android:textSize="12dp" />
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_age"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginBottom="10dp"
-                android:textColorHint="@color/black">
+                android:textColorHint="@color/black_light"
+                android:theme="@style/TextInputLayoutAccent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/enter_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_white_bg"
                     android:digits="0123456789"
                     android:fontFamily="@font/avenir_regular"
-                    android:singleLine="true"
                     android:hint="@string/enter_your_age"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLength="2"
+                    android:singleLine="true"
                     android:textColor="@color/accent"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/black_light" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -143,7 +150,7 @@
                 android:fontFamily="@font/avenir_regular"
                 android:paddingLeft="5dp"
                 android:text="@string/select_gender_t"
-                android:textColor="@color/black"
+                android:textColor="@color/black_light"
                 android:textSize="16dp" />
 
             <RadioGroup
@@ -162,7 +169,7 @@
                     android:checked="false"
                     android:fontFamily="@font/avenir_regular"
                     android:text="@string/male"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_light"
                     android:textSize="14dp" />
 
                 <RadioButton
@@ -174,7 +181,7 @@
                     android:checked="false"
                     android:fontFamily="@font/avenir_regular"
                     android:text="@string/female"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_light"
                     android:textSize="14dp" />
 
                 <RadioButton
@@ -186,7 +193,7 @@
                     android:checked="false"
                     android:fontFamily="@font/avenir_regular"
                     android:text="@string/lgbt"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_light"
                     android:textSize="14dp" />
             </RadioGroup>
 
@@ -205,24 +212,25 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_mail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="10dp"
-                android:textColorHint="@color/black">
+                android:textColorHint="@color/black_light"
+                android:theme="@style/TextInputLayoutAccent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/enter_mail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_white_bg"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.@"
                     android:fontFamily="@font/avenir_regular"
                     android:hint="@string/enter_your_email"
                     android:imeOptions="actionNext"
-                    android:singleLine="true"
-
                     android:inputType="text"
+                    android:singleLine="true"
                     android:textColor="@color/accent"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/black_light" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -231,7 +239,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/black_light"
                 android:visibility="gone">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -244,7 +252,7 @@
                     android:inputType="textCapWords"
 
                     android:textColor="@color/accent"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/black_light" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -252,7 +260,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/black_light"
                 android:visibility="gone">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -266,58 +274,61 @@
 
                     android:inputType="number"
                     android:textColor="@color/accent"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/black_light" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_pwd"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginBottom="10dp"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/black_light"
+                android:theme="@style/TextInputLayoutAccent"
                 app:passwordToggleDrawable="@drawable/ic_show_password"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/dark_text">
+                app:passwordToggleTint="@color/black_light">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/enter_pwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_white_bg"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.-$#&amp;*!"
                     android:fontFamily="@font/avenir_regular"
                     android:hint="@string/password"
                     android:imeOptions="actionNext"
                     android:inputType="textPassword"
-                    android:singleLine="true"
-
                     android:maxLength="10"
+                    android:singleLine="true"
                     android:textColor="@color/accent"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/black_light" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_cfm_pwd"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/black"
-                app:hintTextColor="@color/black"
+                android:layout_height="60dp"
+                android:textColorHint="@color/black_light"
+                android:theme="@style/TextInputLayoutAccent"
+                app:hintTextColor="@color/black_light"
                 app:passwordToggleDrawable="@drawable/ic_show_password"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/black">
+                app:passwordToggleTint="@color/black_light">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/enter_cfm_pwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_white_bg"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.-$#&amp;*!"
                     android:fontFamily="@font/avenir_regular"
                     android:hint="@string/confirm_password"
                     android:imeOptions="actionDone"
                     android:inputType="textPassword"
-                    android:singleLine="true"
                     android:maxLength="10"
+                    android:singleLine="true"
                     android:textColor="@color/accent"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/black_light" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -328,7 +339,7 @@
                 android:fontFamily="@font/avenir_regular"
                 android:paddingLeft="5dp"
                 android:text="@string/education"
-                android:textColor="@color/black"
+                android:textColor="@color/black_light"
                 android:textSize="16dp"
                 android:visibility="gone" />
 
@@ -349,7 +360,7 @@
                     android:checked="false"
                     android:fontFamily="@font/avenir_regular"
                     android:text="@string/high_school"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_light"
                     android:textSize="12dp" />
 
                 <RadioButton
@@ -361,7 +372,7 @@
                     android:checked="false"
                     android:fontFamily="@font/avenir_regular"
                     android:text="@string/intermediate"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_light"
                     android:textSize="12dp" />
 
                 <RadioButton
@@ -373,7 +384,7 @@
                     android:checked="false"
                     android:fontFamily="@font/avenir_regular"
                     android:text="@string/graduate"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_light"
                     android:textSize="12dp" />
 
                 <RadioButton
@@ -385,7 +396,7 @@
                     android:checked="false"
                     android:fontFamily="@font/avenir_regular"
                     android:text="@string/post_grad"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_light"
                     android:textSize="12dp" />
             </RadioGroup>
 
@@ -397,7 +408,7 @@
                 android:gravity="center_vertical"
                 android:text="Area: Akota"
                 android:textAppearance="?attr/textAppearanceListItem"
-                android:textColor="@color/black"
+                android:textColor="@color/black_light"
                 android:visibility="gone" />
 
             <TextView
@@ -407,7 +418,7 @@
                 android:gravity="center_vertical"
                 android:text="City: Vadodara"
                 android:textAppearance="?attr/textAppearanceListItem"
-                android:textColor="@color/black"
+                android:textColor="@color/black_light"
                 android:visibility="gone" />
 
             <LinearLayout
@@ -432,7 +443,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/agree_to_terms_amp_conditions"
-                    android:textColor="@color/lush_lava" />
+                    android:textColor="@color/black_light" />
             </LinearLayout>
 
 

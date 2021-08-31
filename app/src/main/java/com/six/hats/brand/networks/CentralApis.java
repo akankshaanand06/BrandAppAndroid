@@ -162,17 +162,15 @@ public class CentralApis {
             //updated
         Call<BasicResponse> forgotPasswordRequest(@Field("userName") String userName);
 
-        @Headers("Content-Type: application/json")
+       /* @Headers("Content-Type: application/json")
         @GET("/cms/getData")
             //updated
-
-
         Call<CndDataCategoryItem> loadSpinner(@Query("serviceName") String type, @Query("additionalParam") String additionalParam, @Header("Authorization") String authHeader);
 
         @Headers("Content-Type: application/json")
         @GET("/admin/getBranchDetails")
             //updated
-        Call<Centre> loadBranchDetails(@Query("branchId") String id, @Header("Authorization") String authHeader);
+        Call<Centre> loadBranchDetails(@Query("branchId") String id, @Header("Authorization") String authHeader);*/
 
         @Headers("Content-Type: application/json")
         @POST("/user/addBranchAsFavorite")
@@ -183,7 +181,7 @@ public class CentralApis {
         @POST("/user/removeBranchAsFavorite")
             //updated
         Call<BasicResponse> removeFavsRequest(@Query("userId") String userId, @Query("branchId") String branchId, @Header("Authorization") String authHeader);
-
+/*
         @Headers("Content-Type: application/json")
         @GET("/user/RTP")
             //updated
@@ -197,14 +195,14 @@ public class CentralApis {
         @Headers("Content-Type: application/json")
         @GET("/user/getHistoryOfAllAppoitmnetOfUser")
             //updated
-        Call<BookingLstDetails> loadHistoricBookingData(@Query("userId") String userId, @Query("appointmentStatus") String appointmentStatus, @Header("Authorization") String authHeader);
+        Call<BookingLstDetails> loadHistoricBookingData(@Query("userId") String userId, @Query("appointmentStatus") String appointmentStatus, @Header("Authorization") String authHeader);*/
 
         @Headers("Content-Type: application/json")
         @POST("/user/updatePushNotificationToken")
             //updated
         Call<BasicResponse> sendFirebaseTokenToServer(@Query("userId") String userId, @Query("pushNotificationToken") String pushNotificationToken, @Header("Authorization") String authHeader);
 
-        @Headers("Content-Type: application/json")
+     /*   @Headers("Content-Type: application/json")
         @GET("/user/getActiveCampagin")
             //Updated
         Call<CampaignsFragment.APIResponse> loadActiveCampaign(@Query("userId") String userId, @Query("filter") String filter, @Header("Authorization") String authHeader);
@@ -217,13 +215,13 @@ public class CentralApis {
         @Headers("Content-Type: application/json")
         @GET("/cms/getData")
             //updated
-        Call<GeographicResponse> loadSpinnerArea(@Query("serviceName") String type, @Query("additionalParam") String additionalParam);
+        Call<GeographicResponse> loadSpinnerArea(@Query("serviceName") String type, @Query("additionalParam") String additionalParam);*/
 
     }
 
     public interface Booking_APIS {
 
-        @Headers("Content-Type: application/json")
+       /* @Headers("Content-Type: application/json")
         @POST("/booking/bookAnAppointMent")
             //updated
         Call<MultiBookingDetails> bookAppointment(@Body BookingAppointment bookAppointmentRequest, @Header("Authorization") String authHeader);
@@ -305,7 +303,7 @@ public class CentralApis {
         @Headers("Content-Type: application/json")
         @POST("/user/getFeedBackQuestion")
             //updated
-        Call<List<FeedbackItem.Feedback>> loadFeedbackQuestionare(@Query("mainCategory") String mainCategory/*, @Path("subCategory") String subCategory*/, @Header("Authorization") String authHeader);
+        Call<List<FeedbackItem.Feedback>> loadFeedbackQuestionare(@Query("mainCategory") String mainCategory*//*, @Path("subCategory") String subCategory*//*, @Header("Authorization") String authHeader);
 
         @Headers("Content-Type: application/json")
         @POST("/user/saveRatingForgivenAppointmentId")
@@ -320,7 +318,7 @@ public class CentralApis {
         @Headers("Content-Type: application/json")
         @GET("/booking/getAllBranch")
             //updatedc
-        Call<ProvidersItemsFavs> loadALLBranches(@Query("subCategory") String subCategory, @Header("Authorization") String authHeader);
+        Call<ProvidersItemsFavs> loadALLBranches(@Query("subCategory") String subCategory, @Header("Authorization") String authHeader);*/
 
 
     }

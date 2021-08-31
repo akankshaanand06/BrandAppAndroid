@@ -68,12 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 .setDrawerLayout(drawer)
                 .build();
 
-        NavController navController = Navigation.findNavController(this, R.id.fragContainer);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+       // NavController navController = Navigation.findNavController(this, R.id.fragContainer);
+      //  NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+     //   NavigationUI.setupWithNavController(navigationView, navController);
 
         navigation_bottom_ = (BottomNavigationView) findViewById(R.id.navigation_bottom_);
         navigation_bottom_.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        changeFragment(new HomeFragment()/*, activity*/, "QMasterHomeFragment", "replace");
+
+
     }
 
     @Override

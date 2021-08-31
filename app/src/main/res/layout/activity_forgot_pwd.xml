@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ForgotPwdActivity">
+
+    <FrameLayout
+        android:id="@+id/btn_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="@dimen/ten_dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/next"
+            style="@style/CustomBlueButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="44dp"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/forgotLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_lay"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:lineSpacingExtra="5dp"
+            android:fontFamily="@font/avenir_next_medium"
+            android:gravity="center"
+            android:text="@string/enter_your_registered_phone_number"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_ph_no"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:theme="@style/TextInputLayoutAccent"
+            android:textColorHint="@color/black_light">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cust_ph"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:digits="0123456789"
+                android:fontFamily="@font/avenir_regular"
+                android:hint="@string/enter_mobile_number"
+                android:inputType="phone"
+                android:background="@android:color/transparent"
+                android:maxLength="10"
+                android:textColor="@color/accent"
+                android:textColorHint="@color/black_light"
+                android:textSize="16dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/resetLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_otp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="@dimen/ten_dp"
+            android:textColorHint="@color/black_light">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enter_otp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:hint="@string/enter_otp"
+                android:inputType="number"
+                android:maxLength="6"
+                android:textColor="@color/accent"
+                android:textColorHint="@color/black_light" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_new_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ten_dp"
+            android:textColorHint="@color/black_light">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enter_new_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.-$#&amp;*!"
+                android:hint="@string/enter_new_password"
+                android:inputType="textPassword"
+                android:maxLength="10"
+                android:textColor="@color/accent" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_cfm_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:textColorHint="@color/black_light">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enter_cfm_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.-$#&amp;*!"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:maxLength="10"
+                android:textColor="@color/accent" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

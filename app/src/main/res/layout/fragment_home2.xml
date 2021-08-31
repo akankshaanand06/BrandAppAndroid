@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
     android:background="@android:color/transparent"
     android:orientation="vertical">
 
@@ -19,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="400px"
             android:layout_margin="@dimen/activity_horizontal_margin"
-            android:background="@color/cream"
+            android:background="@color/red"
             android:src="@drawable/ic_menu_slideshow" />
 
         <LinearLayout
@@ -48,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginRight="@dimen/activity_horizontal_margin" />
 

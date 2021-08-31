@@ -72,7 +72,7 @@ public class RegPersonelDetails extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reg_personel_details, container, false);
-        String title_color = PrefsWrapper.with(getActivity()).getString(JullayConstants.DEFAULT_HEADING_COLOR, JullayConstants.DARK_HEADING);
+        String title_color = PrefsWrapper.with(getActivity()).getString(JullayConstants.DEFAULT_HEADING_COLOR, JullayConstants.LIGHT_HEADING);
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle((Html.fromHtml(title_color + getString(R.string.reg_persnl_details) + "</font>")));
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
