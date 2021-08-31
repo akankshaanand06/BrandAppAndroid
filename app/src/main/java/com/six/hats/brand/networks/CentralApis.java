@@ -6,6 +6,7 @@ import androidx.annotation.Keep;
 
 import com.six.hats.brand.model.BasicResponse;
 import com.six.hats.brand.model.LoginResponse;
+import com.six.hats.brand.model.MyServiceResponse;
 import com.six.hats.brand.model.OtpResponse;
 import com.six.hats.brand.model.RegPer;
 import com.six.hats.brand.model.RegistPDRequest;
@@ -216,6 +217,12 @@ public class CentralApis {
         @GET("/cms/getData")
             //updated
         Call<GeographicResponse> loadSpinnerArea(@Query("serviceName") String type, @Query("additionalParam") String additionalParam);*/
+
+        @Headers("Content-Type: application/json")
+        @GET("/admin/getServicesByBranch?")
+            //Updated
+        Call<MyServiceResponse> loadAllServices(@Query("branchId") String branchId, @Query("mainService") String mainService, @Header("Authorization") String authHeader);
+
 
     }
 

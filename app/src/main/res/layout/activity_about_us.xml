@@ -1,64 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
     tools:context=".AboutUsActivity">
-
-    <ImageView
-        android:id="@+id/camp_img"
-        android:layout_width="370dp"
-        android:layout_height="188dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:adjustViewBounds="false"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/brand_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/avenir_next_bold"
-        android:padding="10dp"
-        android:text="BranD Name"
+        android:text="Brand Name"
         android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/camp_img"
-        app:layout_constraintStart_toStartOf="@+id/camp_img" />
+        android:textSize="24sp" />
+
+
+    <ImageView
+        android:id="@+id/camp_img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/brand_name"
+        android:adjustViewBounds="false"
+        android:scaleType="fitXY"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
 
     <TextView
         android:id="@+id/short_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_below="@+id/camp_img"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/avenir_next_bold"
-        android:text="Short Description"
-        app:layout_constraintBottom_toTopOf="@+id/long_desc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.018"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camp_img"
-        app:layout_constraintVertical_bias="0.142" />
+        android:text="Short Description" />
 
     <TextView
         android:id="@+id/long_desc"
-        android:layout_width="365dp"
-        android:layout_height="296dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/short_desc"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="407dp" />
+        android:text="TextView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/ratings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_rating"
+            android:drawablePadding="@dimen/ten_dp"
+            android:gravity="center"
+            android:text="@string/ratings" />
+
+        <TextView
+            android:id="@+id/reviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_menu_camera"
+            android:drawablePadding="@dimen/ten_dp"
+            android:gravity="center"
+            android:text="@string/reviews" />
+
+        <TextView
+            android:id="@+id/feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:drawableTop="@drawable/ic_menu_camera"
+            android:drawablePadding="@dimen/ten_dp"
+            android:gravity="center"
+            android:text="@string/feedbacks" />
+
+    </LinearLayout>
+
+</RelativeLayout>

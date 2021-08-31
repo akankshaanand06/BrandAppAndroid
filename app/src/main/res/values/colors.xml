@@ -10,6 +10,7 @@
     <color name="black">#424242</color>
     <color name="black_light">#494949</color>
     <color name="white">#BAFFFFFF</color>
+    <color name="pure_white">#FFFFFF</color>
     <color name="lush_lava">#FF4500</color>
 
     <color name="lush_lava_90">#E6FF4500</color>

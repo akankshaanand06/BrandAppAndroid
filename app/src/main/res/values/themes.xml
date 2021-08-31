@@ -71,7 +71,7 @@
 
 
     <style name="Theme.JullayBrandApp.NoAction" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-    <item name="windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/lush_lava_90</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
