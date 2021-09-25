@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+    android:elevation="4dp"
+    card_view:cardBackgroundColor="@color/accent"
+    card_view:cardCornerRadius="10dp"
+    card_view:contentPadding="@dimen/activity_horizontal_margin"
+    tools:targetApi="lollipop">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/avenir_next_bold"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/pure_white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/serv_prov_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_rating"
+            android:fontFamily="@font/avenir_regular"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/pure_white"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/appt_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/avenir_regular"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/pure_white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/appt_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/avenir_regular"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/pure_white"
+            android:textSize="16dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

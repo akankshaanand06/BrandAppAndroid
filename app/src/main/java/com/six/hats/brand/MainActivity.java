@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -68,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 .setDrawerLayout(drawer)
                 .build();
 
-       // NavController navController = Navigation.findNavController(this, R.id.fragContainer);
-      //  NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-     //   NavigationUI.setupWithNavController(navigationView, navController);
+        // NavController navController = Navigation.findNavController(this, R.id.fragContainer);
+        //  NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        //   NavigationUI.setupWithNavController(navigationView, navController);
 
         navigation_bottom_ = (BottomNavigationView) findViewById(R.id.navigation_bottom_);
         navigation_bottom_.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -79,18 +80,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.fragContainer);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
     }
 
 

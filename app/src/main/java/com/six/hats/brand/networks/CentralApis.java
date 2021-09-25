@@ -4,12 +4,18 @@ import android.annotation.SuppressLint;
 
 import androidx.annotation.Keep;
 
+import com.six.hats.brand.Feedbacks;
 import com.six.hats.brand.model.BasicResponse;
+import com.six.hats.brand.model.BookingLstDetails;
+import com.six.hats.brand.model.Centre;
+import com.six.hats.brand.model.FeedBackResponse;
+import com.six.hats.brand.model.ImagesResponse;
 import com.six.hats.brand.model.LoginResponse;
 import com.six.hats.brand.model.MyServiceResponse;
 import com.six.hats.brand.model.OtpResponse;
 import com.six.hats.brand.model.RegPer;
 import com.six.hats.brand.model.RegistPDRequest;
+import com.six.hats.brand.model.StaffApiResponse;
 import com.six.hats.brand.model.UserDetails;
 import com.six.hats.brand.util.JullayConstants;
 
@@ -163,15 +169,6 @@ public class CentralApis {
             //updated
         Call<BasicResponse> forgotPasswordRequest(@Field("userName") String userName);
 
-       /* @Headers("Content-Type: application/json")
-        @GET("/cms/getData")
-            //updated
-        Call<CndDataCategoryItem> loadSpinner(@Query("serviceName") String type, @Query("additionalParam") String additionalParam, @Header("Authorization") String authHeader);
-
-        @Headers("Content-Type: application/json")
-        @GET("/admin/getBranchDetails")
-            //updated
-        Call<Centre> loadBranchDetails(@Query("branchId") String id, @Header("Authorization") String authHeader);*/
 
         @Headers("Content-Type: application/json")
         @POST("/user/addBranchAsFavorite")
@@ -182,11 +179,49 @@ public class CentralApis {
         @POST("/user/removeBranchAsFavorite")
             //updated
         Call<BasicResponse> removeFavsRequest(@Query("userId") String userId, @Query("branchId") String branchId, @Header("Authorization") String authHeader);
-/*
+
         @Headers("Content-Type: application/json")
-        @GET("/user/RTP")
+        @POST("/user/updatePushNotificationToken")
             //updated
-        Call<LiveBookingResponse> loadLiveStatus(@Query("userId") String userId, @Query("appointmentId") String appointmentId, @Header("Authorization") String authHeader);
+        Call<BasicResponse> sendFirebaseTokenToServer(@Query("userId") String userId, @Query("pushNotificationToken") String pushNotificationToken, @Header("Authorization") String authHeader);
+
+
+        @Headers("Content-Type: application/json")
+        @GET("/admin/getServicesByBranch?")
+            //Updated
+        Call<MyServiceResponse> loadAllServices(@Query("branchId") String branchId, @Query("mainService") String mainService, @Header("Authorization") String authHeader);
+
+
+        @Headers("Content-Type: application/json")
+        @GET("/admin/getAllStaffDetailsByBranchId")
+            //updated
+        Call<StaffApiResponse> loadAllStaffListByBranchId(@Query("branchId") String branchId, @Header("Authorization") String authHeader);
+
+        @Headers("Content-Type: application/json")
+        @GET("/common/getBranchDetails")
+            //updated
+        Call<Centre> loadBranchDetailsByQr(@Query("branchQrId") String branchQrId, @Header("Authorization") String authHeader);
+
+        @Headers("Content-Type: application/json")
+        @GET("/common/getImages")
+            //updated
+        Call<ImagesResponse> loadCentreImages(@Query("branchId") String branchId, @Header("Authorization") String authHeader);
+
+        @Headers("Content-Type: application/json")
+        @GET("/common/getBranchRating")
+            //updated
+        Call<BasicResponse> loadCentreRating(@Query("branchId") String branchId, @Header("Authorization") String authHeader);
+
+        @Headers("Content-Type: application/json")
+        @POST("/cms/getAllFeedBackOfGivenCustomer")
+            //updated
+        Call<List<FeedBackResponse>> getAllFeedbacks(@Body Feedbacks.FeedbackRequest customerFilledFeedBackSearchRequest);
+
+
+        @Headers("Content-Type: application/json")
+        @POST("/common/getFeedBackQuestion/{subCategory}")
+            //updated
+        Call<Feedbacks.Root> getAllQuesFeedbacks(@Path("subCategory") String subCategory, @Body Feedbacks.Data fliterQuestionList);
 
         @Headers("Content-Type: application/json")
         @GET("/user/getAllUpcomingAppointment")
@@ -196,32 +231,7 @@ public class CentralApis {
         @Headers("Content-Type: application/json")
         @GET("/user/getHistoryOfAllAppoitmnetOfUser")
             //updated
-        Call<BookingLstDetails> loadHistoricBookingData(@Query("userId") String userId, @Query("appointmentStatus") String appointmentStatus, @Header("Authorization") String authHeader);*/
-
-        @Headers("Content-Type: application/json")
-        @POST("/user/updatePushNotificationToken")
-            //updated
-        Call<BasicResponse> sendFirebaseTokenToServer(@Query("userId") String userId, @Query("pushNotificationToken") String pushNotificationToken, @Header("Authorization") String authHeader);
-
-     /*   @Headers("Content-Type: application/json")
-        @GET("/user/getActiveCampagin")
-            //Updated
-        Call<CampaignsFragment.APIResponse> loadActiveCampaign(@Query("userId") String userId, @Query("filter") String filter, @Header("Authorization") String authHeader);
-
-        @Headers("Content-Type: application/json")
-        @GET("/cms/getData")
-            //updated
-        Call<ServiceCategoryItem> loadSpinnerServices(@Query("serviceName") String type, @Query("additionalParam") String additionalParam);
-
-        @Headers("Content-Type: application/json")
-        @GET("/cms/getData")
-            //updated
-        Call<GeographicResponse> loadSpinnerArea(@Query("serviceName") String type, @Query("additionalParam") String additionalParam);*/
-
-        @Headers("Content-Type: application/json")
-        @GET("/admin/getServicesByBranch?")
-            //Updated
-        Call<MyServiceResponse> loadAllServices(@Query("branchId") String branchId, @Query("mainService") String mainService, @Header("Authorization") String authHeader);
+        Call<BookingLstDetails> loadHistoricBookingData(@Query("userId") String userId, @Query("appointmentStatus") String appointmentStatus, @Header("Authorization") String authHeader);
 
 
     }

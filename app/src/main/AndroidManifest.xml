@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,10 +16,16 @@
         android:theme="@style/Theme.JullayBrandApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".ServicesViewpagerActivity"/>
+        <activity android:name=".StaffViewpagerActivity"/>
+
         <activity
-            android:name=".ServicesViewpagerActivity"
-            android:label="@string/title_activity_services_viewpager"
-            android:theme="@style/Theme.JullayBrandApp.NoActionBar"></activity>
+            android:name=".BizGallery"
+            android:label="@string/gallery" />
+        <activity android:name=".MenuActivity" />
+        <activity
+            android:name=".Feedbacks"
+            android:label="@string/feedbacks" />
         <activity android:name=".AboutUsActivity" />
         <activity
             android:name=".MainActivity"
@@ -29,7 +36,6 @@
             android:theme="@style/Theme.JullayBrandApp.NoAction">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

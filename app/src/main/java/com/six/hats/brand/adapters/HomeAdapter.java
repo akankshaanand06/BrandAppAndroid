@@ -14,12 +14,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.six.hats.brand.AboutUsActivity;
+import com.six.hats.brand.BizGallery;
+import com.six.hats.brand.Feedbacks;
+import com.six.hats.brand.MenuActivity;
 import com.six.hats.brand.R;
+import com.six.hats.brand.ServicesViewpagerActivity;
+import com.six.hats.brand.StaffViewpagerActivity;
 import com.six.hats.brand.fragments.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 
 @Keep
@@ -61,24 +65,45 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
             public void onClick(View v) {
                 switch (homeItems.get(position).getHome_name()) {
                     case "About Us":
-                        Intent web = new Intent(context, AboutUsActivity.class);
-                        context.startActivity(web);
+                        Intent about = new Intent(context, AboutUsActivity.class);
+                        about.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(about);
                         break;
-                 /*   case 1:
-                        Intent statusSaver = new Intent(context, StatusSaver.class);
-                        context.startActivity(statusSaver);
+                    case "Services":
+                        Intent servAc = new Intent(context, ServicesViewpagerActivity.class);
+                        servAc.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(servAc);
 
-                        break;*/
-                    case "":
-                      /*  Intent noti = new Intent(context, SocialNotificationActivity.class);
-                        context.startActivity(noti);*/
+                        break;
+                    case "Professionals":
+                        Intent staff = new Intent(context, StaffViewpagerActivity.class);
+                        staff.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(staff);
+
+                        break;
+                    case "Gallery":
+                        Intent bizGallery = new Intent(context, BizGallery.class);
+                        bizGallery.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(bizGallery);
+                        break;
+                    case "Ratings":
+                        Intent rating = new Intent(context, MenuActivity.class);
+                        rating.putExtra("menu", "rating");
+                        rating.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(rating);
+                        break;
+                    case "Feedbacks":
+                        Intent feedback = new Intent(context, Feedbacks.class);
+                        feedback.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(feedback);
                         break;
 
-                    case "2":
-                       /* Intent directMsg = new Intent(context, DirectMessage.class);
-                        context.startActivity(directMsg);*/
+                    case "My Timeline":
+                        Intent appointments = new Intent(context, MenuActivity.class);
+                        appointments.putExtra("menu", "appointments");
+                        appointments.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(appointments);
                         break;
-
                 }
             }
         });

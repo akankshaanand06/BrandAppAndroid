@@ -280,6 +280,8 @@
     <string name="title_activity_services_viewpager">ServicesViewpagerActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="appointments">Appointments</string>
+    <string name="gallery">Gallery</string>
 
 
 </resources>

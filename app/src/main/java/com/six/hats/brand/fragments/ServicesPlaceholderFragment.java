@@ -1,4 +1,4 @@
-package com.six.hats.brand.ui.main;
+package com.six.hats.brand.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,14 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.six.hats.brand.R;
 import com.six.hats.brand.model.ServicesData;
+import com.six.hats.brand.ui.main.PageViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -63,7 +62,7 @@ public class ServicesPlaceholderFragment extends Fragment {
         serviceName.setText(servicesData.getServiceName());
         service_cost.setText(servicesData.getCost());
         service_ets.setText(servicesData.getDuration());
-        long_des_serv.setText(servicesData.getLongDesc());
+        //long_des_serv.setText(servicesData.getLongDesc());
        /* pageViewModel.getText().observe(getActivity(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

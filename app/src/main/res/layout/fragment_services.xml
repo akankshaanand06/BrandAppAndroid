@@ -20,7 +20,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <ImageView
             android:id="@+id/camp_img"
             android:layout_width="match_parent"
@@ -28,7 +27,7 @@
             android:layout_below="@+id/brand_name"
             android:adjustViewBounds="false"
             android:scaleType="fitXY"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            android:src="@drawable/dummy_user" />
 
 
         <TextView

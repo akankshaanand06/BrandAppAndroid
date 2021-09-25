@@ -3,6 +3,7 @@ package com.six.hats.brand.fragments;
 import android.os.Bundle;
 
 import androidx.annotation.Keep;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,12 +12,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.six.hats.brand.R;
 import com.six.hats.brand.adapters.HomeAdapter;
+import com.six.hats.brand.model.Centre;
+import com.six.hats.brand.model.CentreSingleton;
+import com.six.hats.brand.model.MyServiceResponse;
+import com.six.hats.brand.networks.CentralApis;
+import com.six.hats.brand.util.CommonUtility;
+import com.six.hats.brand.util.JullayConstants;
+import com.six.hats.brand.util.PrefsWrapper;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,6 +89,12 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         populateHome();
+
+        if (CentreSingleton.getInstance() == null)
+            loadBranchData(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_BranchQR, "SvBtE6RpC1"));
+        else
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(CentreSingleton.getInstance().getBusinessName());
+
 
         return view;
     }
@@ -163,5 +183,68 @@ public class HomeFragment extends Fragment {
         public void setHome_icon(int home_icon) {
             this.home_icon = home_icon;
         }
+    }
+
+
+    public void loadBranchData(String QR) {
+
+        CentralApis.getInstance().getAPIS().loadBranchDetailsByQr(QR, PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_TOKEN, ""))
+                .enqueue(new retrofit2.Callback<Centre>() {
+                    @Override
+                    public void onResponse(Call<Centre> call, Response<Centre> response) {
+                        if (response.isSuccessful()) {
+
+                            Centre centre = response.body();
+
+                            CentreSingleton singleton = CentreSingleton.getInstance();
+
+
+                            singleton.setBranchId(centre.getBranchId());
+                            singleton.setAddress(centre.getAddress());
+                            singleton.setAdminId(centre.getAdminId());
+                            singleton.setBranchQrId(centre.getWalkinQRID());
+                            singleton.setBranchRating(centre.getBranchRating());
+                            singleton.setBusinessHours(centre.getBusinessHours());
+                            singleton.setBusinessId(centre.getBusinessId());
+                            singleton.setBusinessName(centre.getBusinessName());
+                            singleton.setCategory(centre.getCategory());
+                            singleton.setCompleted(centre.isCompleted());
+                            singleton.setCordinates(centre.getCordinates());
+                            singleton.setExperience(centre.getExperience());
+                            singleton.setFav(centre.getFav());
+                            singleton.setHomeService(centre.isHomeService());
+                            singleton.setLocation(centre.getLocation());
+                            singleton.setManagerId(centre.getManagerId());
+                            singleton.setMaxAppointment(centre.getMaxAppointment());
+                            singleton.setNoOfUploadedImages(centre.getNoOfUploadedImages());
+                            singleton.setNumberOfStaff(centre.getNumberOfStaff());
+                            singleton.setPinCode(centre.getPinCode());
+                            singleton.setQrPath(centre.getQrPath());
+                            singleton.setStaffId(centre.getStaffId());
+                            singleton.setSubCategory(centre.getSubCategory());
+
+                            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(centre.getBusinessName());
+
+
+                        } else {
+                            try {
+                                JSONObject jObjError = new JSONObject(response.errorBody().string());
+                                if (jObjError.getString("message").contains("Unauthorized")) {
+                                    CommonUtility.autoLogin(getActivity());
+                                } else {
+                                    CommonUtility.showErrorAlert(getActivity(), jObjError.getString("message"));
+                                }
+                            } catch (Exception e) {
+                                CommonUtility.showErrorAlert(getActivity(), e.getMessage());
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Centre> call, Throwable t) {
+                        Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG).show();
+                    }
+                });
+
     }
 }
