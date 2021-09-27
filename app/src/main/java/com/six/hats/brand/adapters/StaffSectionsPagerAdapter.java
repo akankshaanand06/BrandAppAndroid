@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.six.hats.brand.fragments.ServicesPlaceholderFragment;
 import com.six.hats.brand.fragments.StaffPlaceholderFragment;
-import com.six.hats.brand.model.StaffDetails;
+import com.six.hats.brand.model.booking.StaffDisplayResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +22,10 @@ public class StaffSectionsPagerAdapter extends FragmentPagerAdapter {
 
 
     private final Context mContext;
-    List<StaffDetails> serviceResponses = new ArrayList<>();
+    List<StaffDisplayResponse> serviceResponses = new ArrayList<>();
 
 
-    public StaffSectionsPagerAdapter(Context context, List<StaffDetails> servicesData, FragmentManager fm) {
+    public StaffSectionsPagerAdapter(Context context, List<StaffDisplayResponse> servicesData, FragmentManager fm) {
         super(fm);
         mContext = context;
         this.serviceResponses = servicesData;

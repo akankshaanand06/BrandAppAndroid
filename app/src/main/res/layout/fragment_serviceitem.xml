@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="0dp"
+    card_view:cardBackgroundColor="@color/colorPrimary"
+    card_view:cardCornerRadius="4dp"
+    tools:targetApi="lollipop">
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/ten_dp"
+
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/service_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/avenir_next_bold"
+            android:text=""
+            android:textAllCaps="false"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/darkBlue"
+            android:textSize="18dp"
+            android:textStyle="" />
+
+        <TextView
+            android:id="@+id/service_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/avenir_regular"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/darkBlue"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/service_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/avenir_regular"
+            android:text=""
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/darkBlue"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/checkb"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="@dimen/ten_dp"
+        android:clickable="false"
+        android:src="@drawable/empty_tick_black" />
+</LinearLayout><!--
+</androidx.cardview.widget.CardView>-->

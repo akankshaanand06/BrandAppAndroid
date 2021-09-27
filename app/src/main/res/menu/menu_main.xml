@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.hats.six.hope.MainActivity">
+
+    <item
+        android:id="@+id/scan_qr"
+        android:orderInCategory="100"
+        android:title="@string/scan_qr"
+        app:showAsAction="always" />
+</menu>

@@ -16,8 +16,8 @@
         android:theme="@style/Theme.JullayBrandApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ServicesViewpagerActivity"/>
-        <activity android:name=".StaffViewpagerActivity"/>
+        <activity android:name=".ServicesViewpagerActivity" />
+        <activity android:name=".StaffViewpagerActivity" />
 
         <activity
             android:name=".BizGallery"
@@ -41,6 +41,16 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".register.RegistrationActivity" />
+        <activity
+            android:name=".booking.BookSeatActivity"
+            android:label="Book a seat"
+            android:noHistory="true" />
+        <activity
+            android:name=".booking.QATSelectionActivity"
+            android:label="Book a seat"
+            android:noHistory="true" />
+        <activity android:name=".qrscanner.LivePreviewActivity" />
+
     </application>
 
 </manifest>

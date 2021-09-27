@@ -13,6 +13,7 @@ import com.six.hats.brand.model.CentreSingleton;
 import com.six.hats.brand.model.MyServiceResponse;
 import com.six.hats.brand.model.StaffApiResponse;
 import com.six.hats.brand.model.StaffDetails;
+import com.six.hats.brand.model.booking.StaffDisplayResponse;
 import com.six.hats.brand.networks.CentralApis;
 import com.six.hats.brand.util.CommonUtility;
 import com.six.hats.brand.util.JullayConstants;
@@ -28,7 +29,7 @@ import retrofit2.Response;
 
 public class StaffViewpagerActivity extends AppCompatActivity {
 
-    List<StaffDetails> staffDetails = new ArrayList<>();
+    List<StaffDisplayResponse> staffDetails = new ArrayList<>();
     private StaffSectionsPagerAdapter sectionsPagerAdapter;
 
     @Override
@@ -78,15 +79,15 @@ public class StaffViewpagerActivity extends AppCompatActivity {
         String centerId = branchId;
         CentralApis.getInstance().getAPIS().loadAllStaffListByBranchId(centerId,
                 PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_USER_TOKEN, ""))
-                .enqueue(new retrofit2.Callback<StaffApiResponse>() {
+                .enqueue(new retrofit2.Callback<List<StaffDisplayResponse>>() {
                     @Override
-                    public void onResponse(Call<StaffApiResponse> call, Response<StaffApiResponse> response) {
+                    public void onResponse(Call<List<StaffDisplayResponse>> call, Response<List<StaffDisplayResponse>> response) {
                         if (response.isSuccessful()) {
-                            if (response.body().getBranchStaffList().size() == 0 || response.body().getBranchStaffList().isEmpty()) {
+                            if (response.body().size() == 0 || response.body().isEmpty()) {
                                 Toast.makeText(getApplicationContext(), "There is no data..", Toast.LENGTH_LONG).show();
                             } else {
                                 staffDetails.clear();
-                                staffDetails.addAll(response.body().getBranchStaffList());
+                                staffDetails.addAll(response.body());
                                 sectionsPagerAdapter.notifyDataSetChanged();
                             }
                         } else {
@@ -104,7 +105,7 @@ public class StaffViewpagerActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<StaffApiResponse> call, Throwable t) {
+                    public void onFailure(Call<List<StaffDisplayResponse>> call, Throwable t) {
                         Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
                     }
                 });

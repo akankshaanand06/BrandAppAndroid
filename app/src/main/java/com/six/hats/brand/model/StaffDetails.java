@@ -60,10 +60,20 @@ public class StaffDetails implements Serializable {
     @Expose
     private Boolean isStaffEmergencyActive;
     private String role = "staff";
-
+    @SerializedName("shortDesp")
+    @Expose
+    private String shortDesp;
     private Boolean isSelected = false;
 
     private Boolean isOnAlarm = false;
+
+    public String getShortDesp() {
+        return shortDesp;
+    }
+
+    public void setShortDesp(String shortDesp) {
+        this.shortDesp = shortDesp;
+    }
 
     public Boolean getOnAlarm() {
         return isOnAlarm;

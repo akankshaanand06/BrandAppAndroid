@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/morning"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
+    <ImageView
+        android:id="@+id/day_img"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/a" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:id="@+id/selectionView"
+            android:layout_marginRight="5dp"
+            android:background="@color/transparent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="14dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/phase_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/avenir_regular"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:text="@string/morning"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/phase_slot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/avenir_regular"
+            android:gravity="center"
+            android:text="7 AM to 12 PM"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+ <!--   <ImageView
+        android:id="@+id/checkb"
+        android:layout_width="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/empty_tick"
+        />-->
+</FrameLayout>
+

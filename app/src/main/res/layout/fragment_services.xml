@@ -21,21 +21,24 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/camp_img"
+            android:id="@+id/serv_img"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_below="@+id/brand_name"
             android:adjustViewBounds="false"
             android:scaleType="fitXY"
-            android:src="@drawable/dummy_user" />
+            android:src="@drawable/no_img" />
 
 
         <TextView
             android:id="@+id/serviceName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/camp_img"
+            android:layout_below="@+id/serv_img"
             android:layout_marginTop="30dp"
+            android:autoSizeMaxTextSize="50dp"
+            android:autoSizeMinTextSize="25dp"
+            android:autoSizeStepGranularity="2dp"
             android:fontFamily="@font/avenir_next_medium"
             android:gravity="center"
             android:text="Short Description"
@@ -47,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/serviceName"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
 
@@ -58,18 +61,24 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/rupee"
                 android:drawablePadding="@dimen/ten_dp"
+                android:fontFamily="@font/avenir_next_bold"
                 android:gravity="center"
-                android:text="@string/ratings" />
+                android:text="Cost"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/service_ets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_menu_camera"
+                android:drawableTop="@drawable/ic_empty_clock"
                 android:drawablePadding="@dimen/ten_dp"
+                android:fontFamily="@font/avenir_next_bold"
                 android:gravity="center"
-                android:text="@string/reviews" />
+                android:text="@string/ets"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -79,11 +88,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/butns"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:autoSizeMaxTextSize="25dp"
+            android:autoSizeMinTextSize="16dp"
+            android:autoSizeStepGranularity="2dp"
+            android:lineSpacingExtra="5dp"
             android:padding="@dimen/activity_horizontal_margin"
             android:text="TextView"
-            android:textColor="@color/black_light" />
+            android:textColor="@color/black_light"
+            android:textSize="16dp" />
 
 
     </RelativeLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_textview_selected"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/activity_vertical_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/service_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:drawablePadding="@dimen/ten_dp"
+                android:fontFamily="@font/avenir_regular"
+                android:gravity="left"
+                android:text="dsfdsvgsd"
+                android:textColor="@color/mustard"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/delete_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/ten_dp"
+                app:srcCompat="@drawable/ic_cross"
+                android:contentDescription="@null" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/selectedStaff"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:fontFamily="@font/avenir_regular"
+            android:gravity="left"
+            android:text="@string/selected_staff"
+            android:textColor="@color/mustard"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/serviceTime"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:drawablePadding="@dimen/ten_dp"
+            android:fontFamily="@font/avenir_regular"
+            android:gravity="left"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:text=""
+            android:textColor="@color/mustard"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+        <!--<TextView
+            android:id="@+id/bqat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/ten_dp"
+            android:fontFamily="@font/avenir_regular"
+            android:gravity="center"
+            android:text="6:00 pm"
+            android:textColor="@color/pure_white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/uqat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/ten_dp"
+            android:fontFamily="@font/avenir_regular"
+            android:gravity="center"
+            android:text="6:00 pm"
+            android:textColor="@color/pure_white"
+            android:textSize="18dp"
+            android:textStyle="bold" />-->
+
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/insidePB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/ten_dp"
+        android:theme="@style/Theme.JullayBrandApp.PinkAccent"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/ten_dp"
+                android:fontFamily="@font/avenir_regular"
+                android:gravity="center"
+                android:text="@string/ets"
+                android:textColor="@color/pure_white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/ten_dp"
+                android:fontFamily="@font/avenir_regular"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="@color/mustard"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+       <!-- <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/text_grey" />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/ten_dp"
+                android:fontFamily="@font/avenir_regular"
+                android:gravity="center"
+                android:text="@string/fee"
+                android:textColor="@color/pure_white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/ten_dp"
+                android:fontFamily="@font/avenir_regular"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="@color/mustard"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

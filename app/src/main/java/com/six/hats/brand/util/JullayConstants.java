@@ -70,7 +70,7 @@ public interface JullayConstants {
     String KEY_CENTRE_IMAGE_TYPE = "CENTRE_IMAGE_TYPE";
     String KEY_BIZ_SUB_CATEGORY = "BUSINESS_SUB_CATEGORY";
     String KEY_STATE = "STATE";
-    String DARK_HEADING = "<font color=\"#000000\">";
+    String DARK_HEADING = "<font color=\"#ffffff\">";
     String LIGHT_HEADING = "<font color=\"#ffffff\">";
     String DEFAULT_HEADING_COLOR = "header_color";
 

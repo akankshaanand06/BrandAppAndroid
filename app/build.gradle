@@ -54,4 +54,10 @@ dependencies {
     //https://github.com/ReactiveX/RxAndroid
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'io.reactivex:rxjava:1.3.0'
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+    implementation 'com.google.firebase:firebase-ml-vision-barcode-model:16.1.1'
+    implementation 'me.toptas.fancyshowcase:fancyshowcaseview:1.3.3'
+    implementation('com.github.chtgupta:FadeInTextView-Android:2.1.0') {
+        exclude module: 'app'
+    }
 }

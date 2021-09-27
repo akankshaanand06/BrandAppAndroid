@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/gradiant_diagonal"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/services_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:visibility="visible"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/filter_items_trans" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="com.six.hats.users.QATItemFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/confirm_booking"
+        android:layout_below="@+id/services_list"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="30dp"
+        android:layoutDirection="rtl"
+        android:layout_marginRight="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/fragment_item" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/confirm_booking"
+        style="@style/CustomBlueButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/avenir_regular"
+        android:text="@string/book_q_a_t_btn" />
+
+    <ProgressBar
+        android:id="@+id/insidePB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:theme="@style/Theme.JullayBrandApp.PinkAccent"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+</RelativeLayout>

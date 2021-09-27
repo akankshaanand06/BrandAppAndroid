@@ -5,8 +5,12 @@ import android.annotation.SuppressLint;
 import androidx.annotation.Keep;
 
 import com.six.hats.brand.Feedbacks;
+import com.six.hats.brand.fragments.HomeFragment;
+import com.six.hats.brand.model.CndDataCategoryItem;
+import com.six.hats.brand.model.booking.Appointment;
 import com.six.hats.brand.model.BasicResponse;
-import com.six.hats.brand.model.BookingLstDetails;
+import com.six.hats.brand.model.booking.BookingAppointment;
+import com.six.hats.brand.model.booking.BookingLstDetails;
 import com.six.hats.brand.model.Centre;
 import com.six.hats.brand.model.FeedBackResponse;
 import com.six.hats.brand.model.ImagesResponse;
@@ -17,6 +21,19 @@ import com.six.hats.brand.model.RegPer;
 import com.six.hats.brand.model.RegistPDRequest;
 import com.six.hats.brand.model.StaffApiResponse;
 import com.six.hats.brand.model.UserDetails;
+import com.six.hats.brand.model.booking.CancelBooking;
+import com.six.hats.brand.model.booking.LiveBookingResponse;
+import com.six.hats.brand.model.booking.MultiBookingDetails;
+import com.six.hats.brand.model.booking.MultiBookingRequest;
+import com.six.hats.brand.model.booking.RemoveSelectedStaff;
+import com.six.hats.brand.model.booking.SearchQATBodyParam;
+import com.six.hats.brand.model.booking.ServiceCategoryItem;
+import com.six.hats.brand.model.booking.ServiceList;
+import com.six.hats.brand.model.booking.StaffDisplayResponse;
+import com.six.hats.brand.model.booking.StaffSpecQATRequest;
+import com.six.hats.brand.model.booking.StaffSpecQATResponse;
+import com.six.hats.brand.model.booking.StaffSpecificResponse;
+import com.six.hats.brand.model.booking.TimeSpecQATResponse;
 import com.six.hats.brand.util.JullayConstants;
 
 import java.security.KeyManagementException;
@@ -193,9 +210,9 @@ public class CentralApis {
 
 
         @Headers("Content-Type: application/json")
-        @GET("/admin/getAllStaffDetailsByBranchId")
+        @GET("/common/getAllStaffDisplayByBranchId")
             //updated
-        Call<StaffApiResponse> loadAllStaffListByBranchId(@Query("branchId") String branchId, @Header("Authorization") String authHeader);
+        Call<List<StaffDisplayResponse>> loadAllStaffListByBranchId(@Query("branchId") String branchId, @Header("Authorization") String authHeader);
 
         @Headers("Content-Type: application/json")
         @GET("/common/getBranchDetails")
@@ -233,12 +250,31 @@ public class CentralApis {
             //updated
         Call<BookingLstDetails> loadHistoricBookingData(@Query("userId") String userId, @Query("appointmentStatus") String appointmentStatus, @Header("Authorization") String authHeader);
 
+        @Headers("Content-Type: application/json")
+        @GET("/common/getImageHomeCampaignByBrand")
+            //Updated
+        Call<HomeFragment.APIResponse> loadHomeActiveCampaign(@Query("branchId") String branchId, @Header("Authorization") String authHeader);
+
+        @Headers("Content-Type: application/json")
+        @GET("/cms/getData")
+            //updated
+        Call<CndDataCategoryItem> loadSpinner(@Query("serviceName") String type, @Query("additionalParam") String additionalParam, @Header("Authorization") String authHeader);
+
+        @Headers("Content-Type: application/json")
+        @GET("/cms/getData")
+            //updated
+        Call<ServiceCategoryItem> loadSpinnerServices(@Query("serviceName") String type, @Query("additionalParam") String additionalParam);
+
+        @Headers("Content-Type: application/json")
+        @GET("/user/RTP")
+            //updated
+        Call<LiveBookingResponse> loadLiveStatus(@Query("userId") String userId, @Query("appointmentId") String appointmentId, @Header("Authorization") String authHeader);
 
     }
 
     public interface Booking_APIS {
 
-       /* @Headers("Content-Type: application/json")
+        @Headers("Content-Type: application/json")
         @POST("/booking/bookAnAppointMent")
             //updated
         Call<MultiBookingDetails> bookAppointment(@Body BookingAppointment bookAppointmentRequest, @Header("Authorization") String authHeader);
@@ -252,16 +288,6 @@ public class CentralApis {
         @POST("/booking/searchQAT/{branchId}/{totalTime}")
             //updated
         Call<TimeSpecQATResponse> searchTSQAT(@Path("branchId") String branchId, @Path("totalTime") int totalTime, @Body SearchQATBodyParam searchQATRequest, @Header("Authorization") String authHeader);
-
-        @Headers("Content-Type: application/json")
-        @POST("/user/getAllBranch")
-            //updated
-        Call<ProvidersItems> loadBranches(@Body BusinessListFragment.UserFilterRequest userFilterRequest, @Header("Authorization") String authHeader);
-
-        @Headers("Content-Type: application/json")
-        @GET("/booking/getAllBranchCategoryWise")
-            //updated
-        Call<ProvidersItemsFavs> loadBranchesByCategory(@Query("category") String subCategory, @Query("userId") String userId, @Header("Authorization") String authHeader);
 
         @Headers("Content-Type: application/json")
         @GET("/admin/getActiveServicesByBranch")
@@ -288,17 +314,11 @@ public class CentralApis {
             //updated
         Call<StaffSpecQATResponse> searchSSQAT(@Path("branchId") String branchId, @Body StaffSpecQATRequest timeSpecQATRequest, @Header("Authorization") String authHeader);
 
-        //GET request
-        @Headers("Content-Type: application/json")
-        @GET("/user/getBranchAsFavorite")
-        //updated
-        Call<FavItems> getMyFavsList(@Query("userId") String userId, @Header("Authorization") String authHeader);
-
-        @Headers("Content-Type: application/json")
+      /*  @Headers("Content-Type: application/json")
         @GET("/user/getNotificationOfGivenUser")
             //updated
         Call<NotificationItems> getNotificationsList(@Query("userId") String userId, @Query("page") int page, @Query("size") int size, @Header("Authorization") String authHeader);
-
+*/
 
         @Headers("Content-Type: application/json")
         @GET("/user/cancelBooking")
@@ -317,10 +337,10 @@ public class CentralApis {
         //updated
         Call<Appointment> loadBookingByStatus(@Query("appointmentId") String appointmentId, @Query("appointmentStatus") String appoitmentStatus, @Header("Authorization") String authHeader);
 
-        @Headers("Content-Type: application/json")
+       /* @Headers("Content-Type: application/json")
         @POST("/user/getFeedBackQuestion")
             //updated
-        Call<List<FeedbackItem.Feedback>> loadFeedbackQuestionare(@Query("mainCategory") String mainCategory*//*, @Path("subCategory") String subCategory*//*, @Header("Authorization") String authHeader);
+        Call<List<FeedbackItem.Feedback>> loadFeedbackQuestionare(@Query("mainCategory") String mainCategory, @Path("subCategory") String subCategory, @Header("Authorization") String authHeader);
 
         @Headers("Content-Type: application/json")
         @POST("/user/saveRatingForgivenAppointmentId")
@@ -331,12 +351,7 @@ public class CentralApis {
         @POST("/user/saveCustomerFeedBackResponse")
             //updated
         Call<BasicResponse> postCustomerFeedback(@Body PostCustomerFeedback customerFilledFeedBackForm, @Header("Authorization") String authHeader);
-
-        @Headers("Content-Type: application/json")
-        @GET("/booking/getAllBranch")
-            //updatedc
-        Call<ProvidersItemsFavs> loadALLBranches(@Query("subCategory") String subCategory, @Header("Authorization") String authHeader);*/
-
+*/
 
     }
 

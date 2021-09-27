@@ -277,7 +277,7 @@ public class RegOTPVerifylDetails extends Fragment {
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                         ActivityOptions options =
-                                ActivityOptions.makeCustomAnimation(getActivity(), R.animator.slide_in_left, R.animator.slide_in_right);
+                                ActivityOptions.makeCustomAnimation(getActivity(), R.anim.slide_in_left, R.anim.slide_in_right);
                         startActivity(i, options.toBundle());
 
 

@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.six.hats.brand.R;
-import com.six.hats.brand.model.Appointment;
-import com.six.hats.brand.model.AppontmentEnitities;
+import com.six.hats.brand.model.booking.Appointment;
+import com.six.hats.brand.model.booking.AppontmentEnitities;
 import com.six.hats.brand.util.CommonUtility;
 
 import java.util.List;

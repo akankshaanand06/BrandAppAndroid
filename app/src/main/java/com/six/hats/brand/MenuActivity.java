@@ -1,7 +1,6 @@
 package com.six.hats.brand;
 
 import android.os.Bundle;
-import android.text.Html;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.six.hats.brand.fragments.MyAppointmentList;
 import com.six.hats.brand.fragments.RatingFragment;
-import com.six.hats.brand.model.AppointmentsItems;
+import com.six.hats.brand.model.booking.AppointmentsItems;
 
 public class MenuActivity extends AppCompatActivity implements MyAppointmentList.OnListFragmentInteractionListener {
 
@@ -82,7 +81,7 @@ public class MenuActivity extends AppCompatActivity implements MyAppointmentList
             try {
                 FragmentTransaction transaction =
                         context.getSupportFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_in_right);
+                transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_in_right);
 
                 transaction.replace(R.id.menuContainer, fragment);
                 transaction.addToBackStack(null);

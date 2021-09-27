@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                 i.putExtra("page", "signup");
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 ActivityOptions options =
-                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.animator.slide_in_left, R.animator.slide_in_right);
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_left, R.anim.slide_in_right);
                 startActivity(i, options.toBundle());
 
                 //Go to register step 1
@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(activity, ForgotPwdActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 ActivityOptions options =
-                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.animator.slide_in_left, R.animator.slide_in_right);
+                        ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_left, R.anim.slide_in_right);
                 startActivity(intent, options.toBundle());
                 //  askPhoneDetails();
             }
@@ -255,7 +255,7 @@ public class LoginActivity extends AppCompatActivity {
                             i.putExtra("pwd", pwd);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             ActivityOptions options =
-                                    ActivityOptions.makeCustomAnimation(getApplicationContext(), R.animator.slide_in_left, R.animator.slide_in_right);
+                                    ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_left, R.anim.slide_in_right);
                             startActivity(i, options.toBundle());
                             finish();
                         } else {
@@ -267,7 +267,7 @@ public class LoginActivity extends AppCompatActivity {
                             Intent i = new Intent(activity, MainActivity.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                            /*     ActivityOptions options =
-                                        ActivityOptions.makeCustomAnimation(activity, R.animator.slide_in_left, R.animator.slide_in_right);
+                                        ActivityOptions.makeCustomAnimation(activity, R.anim.slide_in_left, R.anim.slide_in_right);
                                 startActivity(i, options.toBundle());*/
                             startActivity(i);
                             finish();

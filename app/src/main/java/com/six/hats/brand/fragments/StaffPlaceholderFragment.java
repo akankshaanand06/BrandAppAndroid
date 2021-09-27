@@ -20,7 +20,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.six.hats.brand.R;
-import com.six.hats.brand.model.StaffDetails;
+import com.six.hats.brand.model.booking.StaffDisplayResponse;
 import com.six.hats.brand.ui.main.PageViewModel;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -30,12 +30,11 @@ import com.squareup.picasso.Picasso;
  */
 public class StaffPlaceholderFragment extends Fragment {
 
-    private static final String ARG_SECTION_NUMBER = "section_number";
-    StaffDetails staffDetails = new StaffDetails();
+    StaffDisplayResponse staffDetails = new StaffDisplayResponse();
 
-    private PageViewModel pageViewModel;
+    private String serviceTemp = "";
 
-    public static StaffPlaceholderFragment newInstance(StaffDetails staffDetails, int index) {
+    public static StaffPlaceholderFragment newInstance(StaffDisplayResponse staffDetails, int index) {
         StaffPlaceholderFragment fragment = new StaffPlaceholderFragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable("staffDetails", staffDetails);
@@ -47,13 +46,9 @@ public class StaffPlaceholderFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pageViewModel = new ViewModelProvider(this).get(PageViewModel.class);
-        int index = 0;
         if (getArguments() != null) {
-            staffDetails = (StaffDetails) getArguments().getSerializable("staffDetails");
-            index = getArguments().getInt("index");
+            staffDetails = (StaffDisplayResponse) getArguments().getSerializable("staffDetails");
         }
-        pageViewModel.setIndex(index);
 
 
     }
@@ -62,7 +57,9 @@ public class StaffPlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.fragment_staffs, container, false);
+
         ImageView staff_img = root.findViewById(R.id.staff_img);
         TextView staffName = root.findViewById(R.id.staffName);
         TextView appts_count = root.findViewById(R.id.appts_count);
@@ -70,19 +67,19 @@ public class StaffPlaceholderFragment extends Fragment {
         TextView long_des_serv = root.findViewById(R.id.long_des_serv);
         RatingBar staff_rating = root.findViewById(R.id.staff_rating);
 
-        staffName.setText(staffDetails.getName());
-        appts_count.setText("Count");
-        service_list.setText("List");
-        long_des_serv.setText("staffDetails.getLongDesc()");
-      /*  pageViewModel.getText().observe(getActivity(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                staffName.setText(s.getServiceName().toString());
-            }
-        });*/
+        staffName.setText(staffDetails.getBranchStaff().getName());
+        appts_count.setText(staffDetails.getApptCount());
+        for (int i = 0; i < staffDetails.getBranchServiceList().size(); i++) {
+            serviceTemp = serviceTemp + "* " + staffDetails.getBranchServiceList().get(i).getServiceName() + "\n";
+        }
+
+        service_list.setText(serviceTemp);
+        long_des_serv.setText(staffDetails.getBranchStaff().getShortDesp());
+        staff_rating.setRating(Float.parseFloat(staffDetails.getBranchStaff().getStaffRating()));
+
 
         try {
-            Picasso.with(getActivity()).load(staffDetails.getPhoto())
+            Picasso.with(getActivity()).load(staffDetails.getBranchStaff().getPhoto())
                     .resize(60, 60)
                     .into(staff_img, new Callback() {
                         @Override

@@ -63,7 +63,7 @@ public class RegistrationActivity extends AppCompatActivity {
             try {
                 FragmentTransaction transaction =
                         context.getSupportFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_in_right);
+                transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_in_right);
 
                 transaction.replace(R.id.regContainer, fragment);
                 transaction.addToBackStack(null);

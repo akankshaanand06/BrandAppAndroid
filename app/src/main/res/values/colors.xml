@@ -12,13 +12,23 @@
     <color name="white">#BAFFFFFF</color>
     <color name="pure_white">#FFFFFF</color>
     <color name="lush_lava">#FF4500</color>
+    <color name="transparent">#009E9E9E</color>
 
     <color name="lush_lava_90">#E6FF4500</color>
     <color name="grey_light">#E6B3B3B3</color>
     <color name="red">#E53935</color>
     <color name="cream">#F1EBE0</color>
     <color name="accent">#0072B5</color>
-    <color name="gold">#FFAB40</color>
+    <color name="mustard">#FFAB40</color>
+    <color name="cardColor">#172B69</color>
+    <color name="black_opaque">#33000000</color>
+    <color name="grey_text">#8C8A8A</color>
 
+    <color name="darkBlue">#0A1237</color>
+
+    <color name="gradiantStart">#0072B5</color>
+    <color name="gradiantEnd">#E6B3B3B3</color>
+    <color name="gradiantCentre">#E6B3B3B3</color>
+    <color name="yellow">#1FF3D250</color>
 
 </resources>

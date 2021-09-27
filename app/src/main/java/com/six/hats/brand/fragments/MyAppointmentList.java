@@ -1,9 +1,7 @@
 package com.six.hats.brand.fragments;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,18 +10,16 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.six.hats.brand.R;
 import com.six.hats.brand.adapters.MyappointmntAdapter;
-import com.six.hats.brand.model.Appointment;
-import com.six.hats.brand.model.AppointmentsItems;
-import com.six.hats.brand.model.BookingLstDetails;
+import com.six.hats.brand.model.booking.Appointment;
+import com.six.hats.brand.model.booking.AppointmentsItems;
+import com.six.hats.brand.model.booking.BookingLstDetails;
 import com.six.hats.brand.networks.CentralApis;
 import com.six.hats.brand.util.CommonUtility;
 import com.six.hats.brand.util.JullayConstants;
@@ -144,7 +140,7 @@ public class MyAppointmentList extends Fragment {
 
                     appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     ActivityOptions options =
-                            ActivityOptions.makeCustomAnimation(getActivity(), R.animator.slide_in_left, R.animator.slide_in_right);
+                            ActivityOptions.makeCustomAnimation(getActivity(), R.anim.slide_in_left, R.anim.slide_in_right);
                     startActivity(appotmnt_detail, options.toBundle());*/
                 }
             }

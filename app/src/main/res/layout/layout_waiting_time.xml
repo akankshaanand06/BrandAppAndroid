@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:gravity="left"
+    android:layout_gravity="left"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="1.5dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="50dp"
+        android:background="@color/pure_white" />
+
+    <View
+        android:layout_width="1.5dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="50dp"
+
+        android:background="@color/pure_white" />
+
+    <TextView
+        android:id="@+id/idle_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_idle_man"
+        android:layout_marginLeft="40dp"
+
+        android:gravity="center"
+        android:drawablePadding="@dimen/ten_dp"
+        android:text=""
+        android:textColor="@color/pure_white"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="1.5dp"
+        android:layout_height="5dp"
+        android:layout_marginLeft="50dp"
+
+        android:background="@color/pure_white" />
+
+    <View
+        android:layout_width="1.5dp"
+        android:layout_height="5dp"
+        android:layout_marginLeft="50dp"
+
+        android:layout_marginTop="5dp"
+        android:background="@color/pure_white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:drawableRight="@drawable/ic_down"
+       />
+
+
+</LinearLayout>

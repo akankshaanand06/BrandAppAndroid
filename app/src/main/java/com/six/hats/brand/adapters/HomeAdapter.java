@@ -1,5 +1,6 @@
 package com.six.hats.brand.adapters;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -20,7 +21,9 @@ import com.six.hats.brand.MenuActivity;
 import com.six.hats.brand.R;
 import com.six.hats.brand.ServicesViewpagerActivity;
 import com.six.hats.brand.StaffViewpagerActivity;
+import com.six.hats.brand.booking.BookSeatActivity;
 import com.six.hats.brand.fragments.HomeFragment;
+import com.six.hats.brand.model.CentreSingleton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,6 +107,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                         appointments.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(appointments);
                         break;
+                    case "Book Now":
+                        CentreSingleton singleton = CentreSingleton.getInstance();
+                        Intent appotmnt_detail = new Intent(context, BookSeatActivity.class);
+                        appotmnt_detail.putExtra("CentreId", singleton.getBranchId());
+                        appotmnt_detail.putExtra("branch_name", singleton.getBusinessName());
+                        appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        ActivityOptions options =
+                                ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_left, R.anim.slide_in_right);
+                        context.startActivity(appotmnt_detail, options.toBundle());
+                        break;
+
+
                 }
             }
         });

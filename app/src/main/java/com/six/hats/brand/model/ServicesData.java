@@ -39,9 +39,12 @@ public class ServicesData implements Serializable {
     @SerializedName("active")
     @Expose
     private Boolean active;
-    @SerializedName("longDesc")
+    @SerializedName("shortDesp")
     @Expose
-    private String longDesc;
+    private String shortDesp;
+    @SerializedName("servImgUrl")
+    @Expose
+    private String servImgUrl;
 
     /*  @SerializedName("status")
       @Expose
@@ -52,14 +55,22 @@ public class ServicesData implements Serializable {
       private String fkServiceSubCatId;
   */
 
-    private Boolean isSelected = false;
-
-    public String getLongDesc() {
-        return longDesc;
+    public String getServImgUrl() {
+        return servImgUrl;
     }
 
-    public void setLongDesc(String longDesc) {
-        this.longDesc = longDesc;
+    public void setServImgUrl(String servImgUrl) {
+        this.servImgUrl = servImgUrl;
+    }
+
+    private Boolean isSelected = false;
+
+    public String getShortDesp() {
+        return shortDesp;
+    }
+
+    public void setShortDesp(String shortDesp) {
+        this.shortDesp = shortDesp;
     }
 
     public Boolean getActive() {
