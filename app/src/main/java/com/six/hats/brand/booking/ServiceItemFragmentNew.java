@@ -312,7 +312,9 @@ public class ServiceItemFragmentNew extends BaseFragment {
                                     servicesAdapter.notifyDataSetChanged();
                                     servIDs.clear();
                                     idpersonName1.setBackgroundResource(R.drawable.primary_rounded_button);
-                                    idpersonName2.setBackgroundResource(R.drawable.rounded_button_yellow);
+                                    idpersonName1.setTextColor(getResources().getColor(R.color.darkBlue));
+                                    idpersonName2.setBackgroundResource(R.drawable.rounded_button_green);
+                                    idpersonName2.setTextColor(getResources().getColor(R.color.pure_white));
                                     idpersonName2.setPadding(0, 10, 0, 10);
                                     duration = 0;
                                     price = 0;
@@ -364,7 +366,9 @@ public class ServiceItemFragmentNew extends BaseFragment {
                                     servicesAdapter.notifyDataSetChanged();
                                     servIDs.clear();
                                     idpersonName1.setBackgroundResource(R.drawable.primary_rounded_button);
-                                    idpersonName2.setBackgroundResource(R.drawable.rounded_button_yellow);
+                                    idpersonName1.setTextColor(getResources().getColor(R.color.darkBlue));
+                                    idpersonName2.setBackgroundResource(R.drawable.rounded_button_green);
+                                    idpersonName2.setTextColor(getResources().getColor(R.color.pure_white));
                                     idpersonName2.setPadding(0, 10, 0, 10);
 
                                     duration = 0;
@@ -393,8 +397,11 @@ public class ServiceItemFragmentNew extends BaseFragment {
                                     servicesAdapter.notifyDataSetChanged();
                                     servIDs.clear();
                                     idpersonName1.setBackgroundResource(R.drawable.primary_rounded_button);
+                                    idpersonName1.setTextColor(getResources().getColor(R.color.darkBlue));
                                     idpersonName2.setBackgroundResource(R.drawable.primary_rounded_button);
-                                    idpersonName3.setBackgroundResource(R.drawable.rounded_button_yellow);
+                                    idpersonName2.setTextColor(getResources().getColor(R.color.darkBlue));
+                                    idpersonName3.setBackgroundResource(R.drawable.rounded_button_green);
+                                    idpersonName3.setTextColor(getResources().getColor(R.color.pure_white));
                                     idpersonName3.setPadding(0, 10, 0, 10);
                                     duration = 0;
                                     price = 0;
@@ -450,7 +457,9 @@ public class ServiceItemFragmentNew extends BaseFragment {
                                     servicesAdapter.notifyDataSetChanged();
                                     servIDs.clear();
                                     idpersonName1.setBackgroundResource(R.drawable.primary_rounded_button);
-                                    idpersonName2.setBackgroundResource(R.drawable.rounded_button_yellow);
+                                    idpersonName1.setTextColor(getResources().getColor(R.color.darkBlue));
+                                    idpersonName2.setBackgroundResource(R.drawable.rounded_button_green);
+                                    idpersonName2.setTextColor(getResources().getColor(R.color.pure_white));
                                     idpersonName2.setPadding(0, 10, 0, 10);
 
                                     duration = 0;
@@ -481,8 +490,11 @@ public class ServiceItemFragmentNew extends BaseFragment {
                                     servicesAdapter.notifyDataSetChanged();
                                     servIDs.clear();
                                     idpersonName1.setBackgroundResource(R.drawable.primary_rounded_button);
+                                    idpersonName1.setTextColor(getResources().getColor(R.color.darkBlue));
                                     idpersonName2.setBackgroundResource(R.drawable.primary_rounded_button);
-                                    idpersonName3.setBackgroundResource(R.drawable.rounded_button_yellow);
+                                    idpersonName2.setTextColor(getResources().getColor(R.color.darkBlue));
+                                    idpersonName3.setBackgroundResource(R.drawable.rounded_button_green);
+                                    idpersonName3.setTextColor(getResources().getColor(R.color.pure_white));
                                     idpersonName3.setPadding(0, 10, 0, 10);
                                     duration = 0;
                                     price = 0;
@@ -511,9 +523,13 @@ public class ServiceItemFragmentNew extends BaseFragment {
                                     servicesAdapter.notifyDataSetChanged();
                                     servIDs.clear();
                                     idpersonName1.setBackgroundResource(R.drawable.primary_rounded_button);
+                                    idpersonName1.setTextColor(getResources().getColor(R.color.darkBlue));
                                     idpersonName2.setBackgroundResource(R.drawable.primary_rounded_button);
+                                    idpersonName2.setTextColor(getResources().getColor(R.color.darkBlue));
                                     idpersonName3.setBackgroundResource(R.drawable.primary_rounded_button);
-                                    idpersonName4.setBackgroundResource(R.drawable.rounded_button_yellow);
+                                    idpersonName3.setTextColor(getResources().getColor(R.color.darkBlue));
+                                    idpersonName4.setBackgroundResource(R.drawable.rounded_button_green);
+                                    idpersonName4.setTextColor(getResources().getColor(R.color.pure_white));
                                     idpersonName4.setPadding(0, 10, 0, 10);
 
                                     duration = 0;
@@ -834,7 +850,7 @@ public class ServiceItemFragmentNew extends BaseFragment {
             //closeDetail();
             return true;
         }*/
-        getActivity().getSupportFragmentManager().popBackStack();
+        getActivity().finish();
         return true;
     }
 

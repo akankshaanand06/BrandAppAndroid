@@ -6,15 +6,13 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:orientation="vertical"
-    tools:context="com.jullay.users.RTPActivity">
+    tools:context=".RTPFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/adView"
         android:fillViewport="true"
         android:orientation="vertical">
-
 
 
         <RelativeLayout
@@ -24,11 +22,24 @@
             android:orientation="vertical"
             tools:context="com.jullay.users.RTPActivity">
 
+            <TextView
+                android:id="@+id/txtvw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/avenir_next_bold"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/live_queue_status"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/pure_white"
+                android:textSize="25dp" />
+
             <LinearLayout
                 android:id="@+id/centre_info"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/txtvw"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:orientation="horizontal">
 
                 <TextView
@@ -41,8 +52,9 @@
                     android:paddingLeft="@dimen/activity_vertical_margin"
                     android:text=""
                     android:textAppearance="?attr/textAppearanceListItem"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="18dp" />
+                    android:textColor="@color/pure_white"
+                    android:textSize="18dp"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/date"
@@ -59,85 +71,73 @@
 
             </LinearLayout>
 
-          <!--  <TextView
-                android:id="@+id/close_rtp"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:background="@drawable/rounded_rec_gradient"
-                android:fontFamily="@font/avenir_next_bold"
-                android:gravity="center"
-                android:padding="@dimen/activity_vertical_margin"
-                android:text="@string/jullay"
-                android:textAllCaps="true"
-                android:textAppearance="?attr/textAppearanceListItem"
-                android:textColor="@color/purewhite"
-                android:textSize="20dp"
-                android:textStyle="" />-->
+            <!--  <TextView
+                  android:id="@+id/close_rtp"
+                  android:layout_width="200dp"
+                  android:layout_height="wrap_content"
+                  android:layout_alignParentBottom="true"
+                  android:layout_centerHorizontal="true"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_marginTop="60dp"
+                  android:layout_marginBottom="@dimen/activity_vertical_margin"
+                  android:background="@drawable/rounded_rec_gradient"
+                  android:fontFamily="@font/avenir_next_bold"
+                  android:gravity="center"
+                  android:padding="@dimen/activity_vertical_margin"
+                  android:text="@string/jullay"
+                  android:textAllCaps="true"
+                  android:textAppearance="?attr/textAppearanceListItem"
+                  android:textColor="@color/purewhite"
+                  android:textSize="20dp"
+                  android:textStyle="" />-->
 
 
-          <!--  <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <!--  <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                  android:id="@+id/real_time_update"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  card_view:cardBackgroundColor="@color/transparent"
+                  card_view:cardCornerRadius="0dp"
+                  tools:targetApi="lollipop">-->
+
+            <LinearLayout
+
                 android:id="@+id/real_time_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:cardBackgroundColor="@color/transparent"
-                card_view:cardCornerRadius="0dp"
-                tools:targetApi="lollipop">-->
+                android:layout_below="@+id/centre_info"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
 
-                <LinearLayout
-
-                    android:id="@+id/real_time_update"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_below="@+id/centre_info"
-android:layout_marginTop="@dimen/ten_dp"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
-                    <FrameLayout
+                    <ImageView
+                        android:id="@+id/rtp_image"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/rtp_image"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@null"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/dummy_user" />
+                        android:layout_height="250dp"
+                        android:contentDescription="@null"
+                        android:scaleType="fitXY" />
 
 
-                        <ProgressBar
-                            android:id="@+id/insidePB"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|center_horizontal"
-                            android:theme="@style/Theme.JullayBrandApp.PinkAccent"
-                            android:visibility="gone" />
-
-                    </FrameLayout>
-
-                    <TextView
-                        android:id="@+id/txtvw"
-                        android:layout_width="match_parent"
+                    <ProgressBar
+                        android:id="@+id/insidePB"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/avenir_next_bold"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/live_queue_status"
-                        android:textAppearance="?attr/textAppearanceListItem"
-                        android:textColor="@color/darkBlue"
-                        android:textSize="25dp" />
+                        android:layout_gravity="center|center_horizontal"
+                        android:theme="@style/Theme.JullayBrandApp.PinkAccent"
+                        android:visibility="gone" />
 
-                </LinearLayout>
-<!--
-            </androidx.cardview.widget.CardView>
--->
+                </FrameLayout>
+
+
+            </LinearLayout>
+            <!--
+                        </androidx.cardview.widget.CardView>
+            -->
 
             <believe.cht.fadeintextview.TextView
                 android:id="@+id/rtp_tv"
@@ -145,9 +145,11 @@ android:layout_marginTop="@dimen/ten_dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/real_time_update"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="50dp"
                 android:layout_marginRight="@dimen/activity_vertical_margin"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
+                android:lineSpacingExtra="@dimen/ten_dp"
                 android:paddingBottom="10dp"
                 android:text=""
                 android:textColor="@color/mustard"
@@ -164,6 +166,7 @@ android:layout_marginTop="@dimen/ten_dp"
                 android:layout_below="@+id/rtp_tv"
                 android:layout_gravity="center"
                 android:nestedScrollingEnabled="false"
+                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:targetApi="jelly_bean_mr1" />
 

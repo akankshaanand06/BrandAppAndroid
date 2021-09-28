@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.six.hats.brand.BaseFragment;
 import com.six.hats.brand.R;
 import com.six.hats.brand.adapters.MyappointmntAdapter;
 import com.six.hats.brand.model.booking.Appointment;
@@ -39,7 +40,7 @@ import retrofit2.Response;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class MyAppointmentList extends Fragment {
+public class MyAppointmentList extends BaseFragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -243,9 +244,9 @@ public class MyAppointmentList extends Fragment {
                         no_data_text.setText(getString(R.string.no_appointms));
                         apponmt_list.setVisibility(View.GONE);
                     }
-                   // upcoming_lst.setBackground(getResources().getDrawable(R.drawable.rounded_textview_selected));
+                    // upcoming_lst.setBackground(getResources().getDrawable(R.drawable.rounded_textview_selected));
                     upcoming_lst.setTextColor(getResources().getColor(R.color.pure_white));
-                //    history_list.setBackground(getResources().getDrawable(R.drawable.rounded_textview_normal));
+                    //    history_list.setBackground(getResources().getDrawable(R.drawable.rounded_textview_normal));
                     history_list.setTextColor(getResources().getColor(R.color.pure_white));
 
 
@@ -312,10 +313,10 @@ public class MyAppointmentList extends Fragment {
 
                     }
 
-                 //   upcoming_lst.setBackground(getResources().getDrawable(R.drawable.rounded_textview_normal));
+                    //   upcoming_lst.setBackground(getResources().getDrawable(R.drawable.rounded_textview_normal));
                     upcoming_lst.setTextColor(getResources().getColor(R.color.pure_white));
                     history_list.setTextColor(getResources().getColor(R.color.pure_white));
-                  //  history_list.setBackground(getResources().getDrawable(R.drawable.rounded_textview_selected));
+                    //  history_list.setBackground(getResources().getDrawable(R.drawable.rounded_textview_selected));
                 } else {
                     mProgress.setVisibility(View.GONE);
                     try {
@@ -349,5 +350,10 @@ public class MyAppointmentList extends Fragment {
                 }
             }
         });
+    }
+
+    public boolean onBackPressed() {
+        getChildFragmentManager().popBackStack();
+        return true;
     }
 }

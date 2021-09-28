@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/activity_horizontal_margin"
     android:elevation="4dp"
-    card_view:cardBackgroundColor="@color/accent"
+    card_view:cardBackgroundColor="@color/darkBlue"
     card_view:cardCornerRadius="10dp"
     card_view:contentPadding="@dimen/activity_horizontal_margin"
     tools:targetApi="lollipop">
@@ -32,7 +32,7 @@
             android:id="@+id/serv_prov_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableRight="@drawable/ic_rating"
+            android:drawableRight="@drawable/ic_right"
             android:fontFamily="@font/avenir_regular"
             android:text=""
             android:textAppearance="?attr/textAppearanceListItem"

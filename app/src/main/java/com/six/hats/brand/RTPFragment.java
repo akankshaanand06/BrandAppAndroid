@@ -1,5 +1,6 @@
 package com.six.hats.brand;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -7,13 +8,18 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.six.hats.brand.booking.ApptsDetailItemAdapter;
 import com.six.hats.brand.model.booking.Appointment;
 import com.six.hats.brand.model.booking.AppontmentEnitities;
+import com.six.hats.brand.model.booking.BookingLstDetails;
 import com.six.hats.brand.model.booking.LiveBookingResponse;
 import com.six.hats.brand.networks.CentralApis;
 import com.six.hats.brand.util.CommonUtility;
@@ -39,9 +46,9 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class RTPActivity extends AppCompatActivity implements
+public class RTPFragment extends BaseFragment implements
         TextToSpeech.OnInitListener {
-    AppCompatActivity activity;
+    Context activity;
     private ProgressBar mInsideProgressBar;
     private AnimationDrawable animationDrawable;
     TextView rtp_text, centre_name, delay_tv, uqat_tv, uchk_in_tv, bqat_tv, booked_tv;
@@ -52,7 +59,6 @@ public class RTPActivity extends AppCompatActivity implements
     private TextView date;
     private ApptsDetailItemAdapter detailsAdapter;
     private List<AppontmentEnitities> bookingsList = new ArrayList<>();
-    private String bookingID;
     private Appointment bookingsResponse;
     private List<Appointment> bookingObject = null;
     private Handler RTPhandler = null;
@@ -60,46 +66,52 @@ public class RTPActivity extends AppCompatActivity implements
     private CountDownTimer countDownTimer;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rtp);
 
-        activity = this;
-        bookingID = getIntent().getExtras().getString("bookingID", "");
-        bookingObject = (List<Appointment>) getIntent().getExtras().getSerializable("bookingObject");
 
-        mInsideProgressBar = findViewById(R.id.insidePB);
+    }
 
-        text2Speech = new TextToSpeech(this, this);
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_rtp, container, false);
+
+        activity = getActivity();
+        // bookingObject = (List<Appointment>) getArguments().getSerializable("bookingObject");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        mInsideProgressBar = view.findViewById(R.id.insidePB);
+
+        text2Speech = new TextToSpeech(getActivity(), this);
        /* getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);*/
-        rtp_text = (believe.cht.fadeintextview.TextView) findViewById(R.id.rtp_tv);
-        centre_name = (TextView) findViewById(R.id.centre_name);
-        // close_rtp = (TextView) findViewById(R.id.close_rtp);
-        date = findViewById(R.id.date);
-        RecyclerView appt_details_list = findViewById(R.id.appt_details_list);
+        rtp_text = (believe.cht.fadeintextview.TextView) view.findViewById(R.id.rtp_tv);
+        centre_name = (TextView) view.findViewById(R.id.centre_name);
+        // close_rtp = (TextView) view.findViewById(R.id.close_rtp);
+        date = view.findViewById(R.id.date);
+        RecyclerView appt_details_list = view.findViewById(R.id.appt_details_list);
         appt_details_list.setNestedScrollingEnabled(false);
-        appt_details_list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        detailsAdapter = new ApptsDetailItemAdapter("", bookingsList, getApplicationContext());
-        appt_details_list.setAdapter(detailsAdapter);
-      /*  delay_tv = (believe.cht.fadeintextview.TextView) findViewById(R.id.delay_tv);
-        uqat_tv = (believe.cht.fadeintextview.TextView) findViewById(R.id.uqat_tv);
+        appt_details_list.setLayoutManager(new LinearLayoutManager(getActivity()));
+        // detailsAdapter = new ApptsDetailItemAdapter("", bookingsList, getActivity());
+        // appt_details_list.setAdapter(detailsAdapter);
+      /*  delay_tv = (believe.cht.fadeintextview.TextView) view.findViewById(R.id.delay_tv);
+        uqat_tv = (believe.cht.fadeintextview.TextView) view.findViewById(R.id.uqat_tv);
 
-        uchk_in_tv = (believe.cht.fadeintextview.TextView) findViewById(R.id.uchk_in_tv);
-        booked_tv = (believe.cht.fadeintextview.TextView) findViewById(R.id.booked_tv);*/
+        uchk_in_tv = (believe.cht.fadeintextview.TextView) view.findViewById(R.id.uchk_in_tv);
+        booked_tv = (believe.cht.fadeintextview.TextView) view.findViewById(R.id.booked_tv);*/
 
 
         //Real time progress animation code------------------
         try {
-            rtp_imgview = findViewById(R.id.rtp_image);
-            /*if (rtp_imgview == null) throw new AssertionError();
+            rtp_imgview = view.findViewById(R.id.rtp_image);
+            if (rtp_imgview == null) throw new AssertionError();
             rtp_imgview.setBackgroundResource(R.drawable.rtp_animation);
 
             animationDrawable = (AnimationDrawable) rtp_imgview.getBackground();
 
             if (!animationDrawable.isRunning()) {
                 animationDrawable.start();
-            }*/
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,7 +128,7 @@ public class RTPActivity extends AppCompatActivity implements
                     Intent i = new Intent(RTPActivity.this, MainActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     ActivityOptions options =
-                            ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_left, R.anim.slide_in_right);
+                            ActivityOptions.makeCustomAnimation(getActivity(), R.anim.slide_in_left, R.anim.slide_in_right);
                     startActivity(i, options.toBundle());
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -135,25 +147,25 @@ public class RTPActivity extends AppCompatActivity implements
             //      bookingsList.addAll(currentBookingDetails.getAppontmentEnitities());
             bookingsList.clear();
             bookingsList.addAll(bookingObject.get(0).getAppontmentEnitities());
-            detailsAdapter.notifyDataSetChanged();
+            // detailsAdapter.notifyDataSetChanged();
         }
-
-
+        return view;
     }
-
 
     /**
      * load booking detailed from booking id
      */
     private void loadMyBookingDetails() {
         mInsideProgressBar.setVisibility(View.VISIBLE);
-        CentralApis.getInstance().getBookingAPIS().loadBookingByID(bookingID.replace("temp_", ""), PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_USER_TOKEN, "")).enqueue(new retrofit2.Callback<Appointment>() {
+        CentralApis.getInstance().getAPIS().loadMyBookingData(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_ID, "0"),
+                PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_TOKEN, "")).enqueue(new retrofit2.Callback<BookingLstDetails>() {
             @Override
-            public void onResponse(Call<Appointment> call, Response<Appointment> response) {
+            public void onResponse(Call<BookingLstDetails> call, Response<BookingLstDetails> response) {
                 if (response.isSuccessful()) {
                     try {
                         mInsideProgressBar.setVisibility(View.GONE);
-                        bookingsResponse = response.body();
+                        BookingLstDetails list = response.body();
+                        bookingsResponse = list.getAppointmentList().get(0);
                         loadLiveStatusData(bookingsResponse.getAppointmentId());
                         centre_name.setText("@ " + bookingsResponse.getAppontmentEnitities().get(0).getBranchName());
                         String bookingDate = bookingsResponse.getAppontmentEnitities().get(0).getBookingSlot().getDate();
@@ -181,7 +193,7 @@ public class RTPActivity extends AppCompatActivity implements
             }
 
             @Override
-            public void onFailure(Call<Appointment> call, Throwable t) {
+            public void onFailure(Call<BookingLstDetails> call, Throwable t) {
                 mInsideProgressBar.setVisibility(View.GONE);
                 if (!CommonUtility.haveNetworkConnection(activity)) {
                     CommonUtility.showAlertRetryCancel(activity, getString(R.string.app_name), getString(R.string.internet_error), new DialogInterface.OnClickListener() {
@@ -207,7 +219,7 @@ public class RTPActivity extends AppCompatActivity implements
      * @param bookingID
      */
     private void loadLiveStatusData(final String bookingID) {
-        CentralApis.getInstance().getAPIS().loadLiveStatus(PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_USER_ID, ""), bookingID, PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_USER_TOKEN, "")).enqueue(new retrofit2.Callback<LiveBookingResponse>() {
+        CentralApis.getInstance().getAPIS().loadLiveStatus(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_ID, ""), bookingID, PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_TOKEN, "")).enqueue(new retrofit2.Callback<LiveBookingResponse>() {
             @Override
             public void onResponse(Call<LiveBookingResponse> call, Response<LiveBookingResponse> response) {
 
@@ -223,7 +235,7 @@ public class RTPActivity extends AppCompatActivity implements
                         Intent i = new Intent(RTPActivity.this, HomeActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         ActivityOptions options =
-                                ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_left, R.anim.slide_in_right);
+                                ActivityOptions.makeCustomAnimation(getActivity(), R.anim.slide_in_left, R.anim.slide_in_right);
                         startActivity(i, options.toBundle());
 
                         finish();
@@ -238,12 +250,12 @@ public class RTPActivity extends AppCompatActivity implements
                     try {
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
                         if (jObjError.getString("message").contains("Unauthorized")) {
-                            CommonUtility.autoLogin(getApplicationContext());
+                            CommonUtility.autoLogin(getActivity());
                         } else {
-                            CommonUtility.showErrorAlert(getApplicationContext(), jObjError.getString("message"));
+                            CommonUtility.showErrorAlert(getActivity(), jObjError.getString("message"));
                         }
                     } catch (Exception e) {
-                        CommonUtility.showErrorAlert(getApplicationContext(), e.getMessage());
+                        CommonUtility.showErrorAlert(getActivity(), e.getMessage());
 
                     }
                 }
@@ -252,7 +264,7 @@ public class RTPActivity extends AppCompatActivity implements
 
             @Override
             public void onFailure(Call<LiveBookingResponse> call, Throwable t) {
-                if (!CommonUtility.haveNetworkConnection(getApplicationContext())) {
+                if (!CommonUtility.haveNetworkConnection(getActivity())) {
                     CommonUtility.showAlertRetryCancel(activity, getString(R.string.app_name), getString(R.string.internet_error), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -262,7 +274,7 @@ public class RTPActivity extends AppCompatActivity implements
                         }
                     });
                 } else {
-                    CommonUtility.showErrorAlert(getApplicationContext(), getString(R.string.network_error_text));
+                    CommonUtility.showErrorAlert(getActivity(), getString(R.string.network_error_text));
 
                 }
             }
@@ -274,18 +286,18 @@ public class RTPActivity extends AppCompatActivity implements
         mInsideProgressBar.setVisibility(View.GONE);
 
 //todo
-       /*----- if (!CommonUtility.isTodaysBooking(data.getAppointment().getAppontmentEnitities().get(0).getBookingSlot().getDate())) {
+        if (!CommonUtility.isTodaysBooking(data.getAppointment().getAppontmentEnitities().get(0).getBookingSlot().getDate())) {
             //if appointment is advance then
             rtp_imgview.setImageResource(R.drawable.rtp_9);
             rtp_text.setVisibility(View.VISIBLE);
             String rtpText;
-            rtpText = "Hi! " + PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_NAME, "") + "." + " Live queue progress of your turn will be available from tomorrow.";
+            rtpText = "Hi! " + PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_NAME, "") + "." + " Live queue progress of your turn will be available from tomorrow.";
             rtp_text.setText(rtpText);
             text2Speech.speak(rtpText, TextToSpeech.QUEUE_FLUSH, null);
             return;
-        }------*/
+        }
 
-        /*-------switch (Integer.valueOf(data.getPeopleAheadCount())) {
+       /* switch (Integer.valueOf(data.getPeopleAheadCount())) {
             case 0:
                 rtp_imgview.setImageResource(R.drawable.rtp_9);
                 break;
@@ -313,155 +325,11 @@ public class RTPActivity extends AppCompatActivity implements
             default:
                 rtp_imgview.setImageResource(R.drawable.rtp_1);
                 break;
-        }-------*/
+        }*/
 
         //  displayRTP(0, data, true);
         displayRtpHandler(0, data, true);
     }
-
-
-/*
-    public void displayRTP(int pos, final LiveBookingResponse data, boolean isFirstDisplay) {
-        final String[] rtpText = new String[1];
-        try {
-            String mCheckinTime = "", mDelayMins = "5", mQueuePersons = "0", mUAT = "", mMinsLeft = "0";
-
-            int mCt;
-            int bookedHr = data.getCurrentSlot().getEndSpan().getHour();
-            int bookedMin = data.getCurrentSlot().getEndSpan().getMinutes();
-
-
-            if (bookedMin < 55) {
-                mCt = bookedMin + 5;
-            } else {
-                mCt = bookedMin;
-            }
-
-            mCheckinTime = data.getCurrentSlot().getStartSpan().getHour() + ":" + mCt;
-
-            mUAT = data.getCurrentSlot().getStartSpan().getHour() + ":" + data.getCurrentSlot().getStartSpan().getMinutes();
-
-            final int[] rtp_pos = {pos};
-            if (isFirstDisplay) {
-                if (rtp_pos[0] == 0) {
-                    rtp_text.setVisibility(View.VISIBLE);
-                    rtpText[0] = "Hi! " + PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_NAME, "") + "." + " There are " + data.getPeopleAheadCount() + " People Ahead of you.";
-                    rtp_text.setText(rtpText[0]);
-                    text2Speech.speak(rtpText[0], TextToSpeech.QUEUE_FLUSH, null);
-                    rtp_pos[0] = rtp_pos[0] + 1;
-
-                }
-
-            }
-            final String finalMCheckinTime = mCheckinTime;
-            thread = new Thread() {
-
-                @Override
-                public void run() {
-                    try {
-                        while (!isInterrupted()) {
-
-                            Thread.sleep(7000);
-
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    switch (rtp_pos[0]) {
-                                        case 0:
-
-                                            rtp_text.setVisibility(View.VISIBLE);
-                                            rtpText[0] = "Hi! " + PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_NAME, "") + "." + " There are " + data.getPeopleAheadCount() + " People Ahead of you.";
-                                            rtp_text.setText(rtpText[0]);
-                                            text2Speech.speak(rtpText[0], TextToSpeech.QUEUE_FLUSH, null);
-                                            int i0 = rtp_pos[0] + 1;
-                                            displayRTP(i0, data, false);
-
-                                            break;
-                                        case 1:
-                                            rtp_text.setVisibility(View.VISIBLE);
-
-                                            if (Integer.parseInt(data.getDelayOnIt()) > 0) {
-                                                rtpText[0] = "As there is a DELAY of " + data.getDelayOnIt() + " mins, your NEW Check-in Time is " + finalMCheckinTime;
-                                                rtp_text.setText(rtpText[0]);
-                                            } else {
-                                                rtpText[0] = "There is NO Delay with your reservation.";
-                                                rtp_text.setText(rtpText[0]);
-                                            }
-                                            text2Speech.speak(rtpText[0], TextToSpeech.QUEUE_FLUSH, null);
-
-                                            int i1 = rtp_pos[0] + 1;
-                                            displayRTP(i1, data, false);
-                                            break;
-                                       */
-/* case 2:
-                                            rtp_text.setVisibility(View.VISIBLE);
-                                            rtpText[0] = "With " + CommonUtility.formatDuration(diff) + " minutes left for CHECK-IN, do follow Live Queue Progress.";
-                                            rtp_text.setText(rtpText[0]);
-                                            text2Speech.speak(rtpText[0], TextToSpeech.QUEUE_FLUSH, null);
-
-                                            int i2 = rtp_pos[0] + 1;c
-                                            displayRTP(i2, data);
-                                            break;*//*
-
-                                        case 2:
-                                            rtp_text.setVisibility(View.VISIBLE);
-                                            rtpText[0] = "We are eagerly waiting for your visit.";
-                                            rtp_text.setText(rtpText[0]);
-                                            text2Speech.speak(rtpText[0], TextToSpeech.QUEUE_FLUSH, null);
-
-                                            int i3 = 0;
-                                           displayRTP(i3, data, false);
-                                            break;
-                                        case 3:
-                                            stopThread();
-
-                                            */
-    /*  *//*
-     */
-/* if (animationDrawable.isRunning()) {
-                                                animationDrawable.stop();
-                                            }*//*
-     */
-/*
-                                            rtp_text.setVisibility(View.VISIBLE);
-                                            rtpText[0] = "Please press Jullay button to go back to Home Page.";
-
-                                            rtp_text.setText(rtpText[0]);
-                                            text2Speech.speak(rtpText[0], TextToSpeech.QUEUE_FLUSH, null);
-
-                                            int i4 = rtp_pos[0] + 1;*//*
-
-
-                                            break;
-                                        case 4:
-                                            stopThread();
-                                            break;
-
-                                    }
-
-
-                                }
-                            });
-                        }
-                    } catch (InterruptedException e) {
-                        stopThread();
-                        e.printStackTrace();
-                    }
-                }
-            };
-            if (!thread.isAlive()) {
-                System.gc();
-                thread.start();//todo crashed     java.lang.OutOfMemoryError: Could not allocate JNI Env: Failed anonymous mmap(0x0, 8192, 0x3, 0x2, 45, 0): Operation not permitted. See process maps in the log.
-
-            }
-
-            //-----------------------------
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-*/
 
     public void displayRtpHandler(int pos, final LiveBookingResponse data, boolean isFirstDisplay) {
         final String[] rtpText = new String[1];
@@ -487,7 +355,7 @@ public class RTPActivity extends AppCompatActivity implements
         if (isFirstDisplay) {
             if (rtp_pos[0] == 0) {
                 rtp_text.setVisibility(View.VISIBLE);
-                rtpText[0] = "Hi! " + PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_NAME, "") + "." + " There are " + data.getPeopleAheadCount() + " People Ahead of you.";
+                rtpText[0] = "Hi! " + PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_NAME, "") + "." + " There are " + data.getPeopleAheadCount() + " People Ahead of you.";
                 rtp_text.setText(rtpText[0]);
                 text2Speech.speak(rtpText[0], TextToSpeech.QUEUE_FLUSH, null);
                 rtp_pos[0] = rtp_pos[0] + 1;
@@ -512,7 +380,7 @@ public class RTPActivity extends AppCompatActivity implements
                     case 1:
 
                         rtp_text.setVisibility(View.VISIBLE);
-                        rtpText[0] = "Hi! " + PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_NAME, "") + "." + " There are " + data.getPeopleAheadCount() + " People Ahead of you.";
+                        rtpText[0] = "Hi! " + PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_NAME, "") + "." + " There are " + data.getPeopleAheadCount() + " People Ahead of you.";
                         rtp_text.setText(rtpText[0]);
                         text2Speech.speak(rtpText[0], TextToSpeech.QUEUE_FLUSH, null);
                         rtp_pos[0] = rtp_pos[0] + 1;
@@ -566,7 +434,7 @@ public class RTPActivity extends AppCompatActivity implements
                     case 0:
 
                         rtp_text.setVisibility(View.VISIBLE);
-                        rtpText[0] = "Hi! " + PrefsWrapper.with(getApplicationContext()).getString(JullayConstants.KEY_NAME, "") + "." + " There are " + data.getPeopleAheadCount() + " People Ahead of you.";
+                        rtpText[0] = "Hi! " + PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_NAME, "") + "." + " There are " + data.getPeopleAheadCount() + " People Ahead of you.";
                         rtp_text.setText(rtpText[0]);
                         text2Speech.speak(rtpText[0], TextToSpeech.QUEUE_FLUSH, null);
                         int i0 = rtp_pos[0] + 1;
@@ -671,11 +539,11 @@ public class RTPActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onBackPressed() {
+    public boolean onBackPressed() {
 
         stopThread();
-        finish();
-        super.onBackPressed();
+
+        return true;
     }
 
 

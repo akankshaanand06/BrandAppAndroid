@@ -11,16 +11,16 @@ import java.util.List;
 
 @Keep
 public class StaffSpecQATResponse extends BasicResponse {
-    @SerializedName("allBusy")
+    @SerializedName("anotherReqstInProgress")
     @Expose
     private Boolean allBusy;
-    @SerializedName("pleaseComeLater")
+    @SerializedName("noQATsAvailGoToSSBkng")
     @Expose
     private Boolean pleaseComeLater;
     @SerializedName("staffWaitList")
     @Expose
     private List<WaitTime> staffWaitList = new ArrayList<>();
-    @SerializedName("staffQATList")
+    @SerializedName("staffWiseQATsList")
     @Expose
     private List<QATResponseList> staffQATList = new ArrayList<>();
 

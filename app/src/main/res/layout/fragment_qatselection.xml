@@ -43,7 +43,7 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:fontFamily="@font/avenir_regular"
                 android:text="@string/selected_services"
-                android:textColor="@color/darkBlue"
+                android:textColor="@color/white"
                 android:textSize="14dp" />
 
             <androidx.recyclerview.widget.RecyclerView

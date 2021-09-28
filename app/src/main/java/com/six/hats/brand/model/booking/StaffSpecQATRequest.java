@@ -9,10 +9,13 @@ import java.util.List;
 @Keep
 public class StaffSpecQATRequest {
 
-    private MultiRequest multiRequest = new MultiRequest();
-    private List<SearchQatRequest> searchQATForStaffRequests = new ArrayList<>();
-    private Boolean newBooking;
-    private String bookingMedium;
+    private MultiRequest multiPersonRequestCounter = new MultiRequest();
+    private List<SearchQatRequest> staffWiseQATReqList = new ArrayList<>();
+    private Boolean isNewBooking;
+    /**
+     * Contains Values ONSITE and ONLINE
+     */
+    private String bkngMode;
     private CustomerDetails customerRequest = new CustomerDetails();
     private String mainCategory;
     private String subCategory;
@@ -42,12 +45,12 @@ public class StaffSpecQATRequest {
         this.subCategory = subCategory;
     }
 
-    public String getBookingMedium() {
-        return bookingMedium;
+    public String getBkngMode() {
+        return bkngMode;
     }
 
-    public void setBookingMedium(String bookingMedium) {
-        this.bookingMedium = bookingMedium;
+    public void setBkngMode(String bkngMode) {
+        this.bkngMode = bkngMode;
     }
 
     public CustomerDetails getCustomerRequest() {
@@ -58,28 +61,28 @@ public class StaffSpecQATRequest {
         this.customerRequest = customerRequest;
     }
 
-    public Boolean getNewBooking() {
-        return newBooking;
+    public Boolean getIsNewBooking() {
+        return isNewBooking;
     }
 
-    public void setNewBooking(Boolean newBooking) {
-        this.newBooking = newBooking;
+    public void setIsNewBooking(Boolean isNewBooking) {
+        this.isNewBooking = isNewBooking;
     }
 
-    public MultiRequest getMultiRequest() {
-        return multiRequest;
+    public MultiRequest getMultiPersonRequestCounter() {
+        return multiPersonRequestCounter;
     }
 
-    public void setMultiRequest(MultiRequest multiRequest) {
-        this.multiRequest = multiRequest;
+    public void setMultiPersonRequestCounter(MultiRequest multiPersonRequestCounter) {
+        this.multiPersonRequestCounter = multiPersonRequestCounter;
     }
 
-    public List<SearchQatRequest> getSearchQATForStaffRequests() {
-        return searchQATForStaffRequests;
+    public List<SearchQatRequest> getStaffWiseQATReqList() {
+        return staffWiseQATReqList;
     }
 
-    public void setSearchQATForStaffRequests(List<SearchQatRequest> searchQATForStaffRequests) {
-        this.searchQATForStaffRequests = searchQATForStaffRequests;
+    public void setStaffWiseQATReqList(List<SearchQatRequest> staffWiseQATReqList) {
+        this.staffWiseQATReqList = staffWiseQATReqList;
     }
 
 

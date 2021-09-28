@@ -72,12 +72,12 @@ public class MainServicesListAdapter extends RecyclerView.Adapter<MainServicesLi
                         mValues.get(position).setSelected(false);
                     }
                 }
-                holder.mIdView.setTextColor(mContext.getResources().getColor(R.color.darkBlue));
+                holder.mIdView.setTextColor(mContext.getResources().getColor(R.color.pure_white));
                 holder.mIdView.setTypeface(holder.mIdView.getTypeface(), Typeface.BOLD);
                 holder.mIdView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
                 holder.mIdView.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, R.drawable.ic_mustard_dot);
             } else {
-                holder.mIdView.setTextColor(mContext.getResources().getColor(R.color.darkBlue));
+                holder.mIdView.setTextColor(mContext.getResources().getColor(R.color.white));
                 holder.mIdView.setTypeface(holder.mIdView.getTypeface(), Typeface.NORMAL);
                 holder.mIdView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
                 holder.mIdView.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);

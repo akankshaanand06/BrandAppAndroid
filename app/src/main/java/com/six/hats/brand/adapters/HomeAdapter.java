@@ -108,14 +108,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                         context.startActivity(appointments);
                         break;
                     case "Book Now":
-                        CentreSingleton singleton = CentreSingleton.getInstance();
+                      /*  CentreSingleton singleton = CentreSingleton.getInstance();
                         Intent appotmnt_detail = new Intent(context, BookSeatActivity.class);
                         appotmnt_detail.putExtra("CentreId", singleton.getBranchId());
                         appotmnt_detail.putExtra("branch_name", singleton.getBusinessName());
                         appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         ActivityOptions options =
                                 ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_left, R.anim.slide_in_right);
-                        context.startActivity(appotmnt_detail, options.toBundle());
+                        context.startActivity(appotmnt_detail, options.toBundle());*/
                         break;
 
 

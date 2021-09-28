@@ -273,6 +273,8 @@ public class HomeFragment extends Fragment {
                             ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(centre.getBusinessName());
                             populateCampaignsList(centre.getBranchId());
 
+
+
                         } else {
                             try {
                                 JSONObject jObjError = new JSONObject(response.errorBody().string());

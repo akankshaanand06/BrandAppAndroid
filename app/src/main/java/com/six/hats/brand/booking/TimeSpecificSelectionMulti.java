@@ -34,7 +34,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.six.hats.brand.BaseFragment;
 import com.six.hats.brand.R;
-import com.six.hats.brand.RTPActivity;
+import com.six.hats.brand.RTPFragment;
 import com.six.hats.brand.model.BasicResponse;
 import com.six.hats.brand.model.TimeSpan;
 import com.six.hats.brand.model.booking.Advance;
@@ -528,26 +528,26 @@ public class TimeSpecificSelectionMulti extends BaseFragment {
         Advance advance = new Advance();
         advance.setAdvance(prebooking);
         if (PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0").equalsIgnoreCase("0")) {
-            advance.setBookingDate("");
+            advance.setApntDate("");
         } else {
             long date = CommonUtility.getTimestampFromString(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0"));
             String newDate = CommonUtility.formatFullDate(date);
-            advance.setBookingDate(newDate);
+            advance.setApntDate(newDate);
         }
         TimeSpan span = new TimeSpan();
         span.setHour(CommonUtility.getHrsFromStringDate(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0")));
         span.setMinutes(CommonUtility.getMinsFromStringDate(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0")));
         span.setTotal((span.getHour() * 60) + span.getMinutes());
-        advance.setStartSpan(span);
+        advance.setBkngRequestStartDateTime(span);
 
         MultiRequest multiRequest = new MultiRequest();
         int totalBooking = PrefsWrapper.with(getActivity()).getInt(JullayConstants.KEY_BOOKING_COUNT, 1);
         multiRequest.setTotalPerson(totalBooking);
         multiRequest.setCurrentPersonNumber(currentBookingPos);
         if (totalBooking > 1) {
-            multiRequest.setMultiRequest(true);
+            multiRequest.setIsMultiRequest(true);
         } else {
-            multiRequest.setMultiRequest(false);
+            multiRequest.setIsMultiRequest(false);
         }
 
         SearchQATBodyParam param = new SearchQATBodyParam();
@@ -557,18 +557,18 @@ public class TimeSpecificSelectionMulti extends BaseFragment {
         param.setUserId(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_ID, ""));
         param.setAdvanceBookingRequest(advance);
         param.setServiceList(services);
-        param.setMultiRequest(multiRequest);
+        param.setMultiPersonRequestCounter(multiRequest);
         if (totalBooking > 1) {
             if (currentBookingPos == 1) {
-                param.setNewBooking(true);
+                param.setIsNewBooking(true);
             } else {
-                param.setNewBooking(false);
+                param.setIsNewBooking(false);
             }
         } else {
-            param.setNewBooking(true);
+            param.setIsNewBooking(true);
         }
 
-        param.setBookingMedium(JullayConstants.KEY_BOOKING_ONLINE);
+        param.setBkngMode(JullayConstants.KEY_BOOKING_ONLINE);
         CustomerDetails customerDetails = new CustomerDetails();
         customerDetails.setCustomerName(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_NAME, ""));
         customerDetails.setCustomerPhoneNo(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_PH, ""));
@@ -998,7 +998,7 @@ public class TimeSpecificSelectionMulti extends BaseFragment {
                                         appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(appotmnt_detail, options.toBundle());
                                     } else {*/
-            Intent appotmnt_detail = new Intent(getContext(), RTPActivity.class);
+            Intent appotmnt_detail = new Intent(getContext(), RTPFragment.class);
             appotmnt_detail.putExtra("bookingID", multiBookingDetails.getAppointment().get(0).getAppointmentId().replace("temp_", ""));
             appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(appotmnt_detail, options.toBundle());

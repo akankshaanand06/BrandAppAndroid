@@ -9,15 +9,15 @@ import java.io.Serializable;
 @Keep
 public class Advance implements Serializable {
     private Boolean advance;
-    private String bookingDate;
-    private TimeSpan startSpan = new TimeSpan();
+    private String apntDate;
+    private TimeSpan bkngRequestStartDateTime = new TimeSpan();
 
-    public String getBookingDate() {
-        return bookingDate;
+    public String getApntDate() {
+        return apntDate;
     }
 
-    public void setBookingDate(String bookingDate) {
-        this.bookingDate = bookingDate;
+    public void setApntDate(String apntDate) {
+        this.apntDate = apntDate;
     }
 
     public Boolean getAdvance() {
@@ -28,12 +28,12 @@ public class Advance implements Serializable {
         this.advance = advance;
     }
 
-    public TimeSpan getStartSpan() {
-        return startSpan;
+    public TimeSpan getBkngRequestStartDateTime() {
+        return bkngRequestStartDateTime;
     }
 
-    public void setStartSpan(TimeSpan startSpan) {
-        this.startSpan = startSpan;
+    public void setBkngRequestStartDateTime(TimeSpan bkngRequestStartDateTime) {
+        this.bkngRequestStartDateTime = bkngRequestStartDateTime;
     }
 }
 

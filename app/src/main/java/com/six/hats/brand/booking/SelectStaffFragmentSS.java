@@ -203,17 +203,17 @@ public class SelectStaffFragmentSS extends BaseFragment {
                         Advance advance = new Advance();
                         advance.setAdvance(prebooking);
                         if (PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0").equalsIgnoreCase("0")) {
-                            advance.setBookingDate("");
+                            advance.setApntDate("");
                         } else {
                             long date = CommonUtility.getTimestampFromString(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0"));
                             String newDate = CommonUtility.formatFullDate(date);
-                            advance.setBookingDate(newDate);
+                            advance.setApntDate(newDate);
                         }
                         TimeSpan span = new TimeSpan();
                         span.setHour(CommonUtility.getHrsFromStringDate(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0")));
                         span.setMinutes(CommonUtility.getMinsFromStringDate(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0")));
                         span.setTotal((span.getHour() * 60) + span.getMinutes());
-                        advance.setStartSpan(span);
+                        advance.setBkngRequestStartDateTime(span);
 
                         searchQatRequest.setAdvanceBookingRequest(advance);
                         searchQatRequest.setStaffId(mStaffSelected);

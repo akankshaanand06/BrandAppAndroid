@@ -1,6 +1,7 @@
 package com.six.hats.brand.booking;
 
 
+import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,6 +27,7 @@ import androidx.fragment.app.Fragment;
 
 import com.six.hats.brand.BaseFragment;
 import com.six.hats.brand.R;
+import com.six.hats.brand.model.CentreSingleton;
 import com.six.hats.brand.ui.MultiPersonSheetDialog;
 import com.six.hats.brand.util.CommonUtility;
 import com.six.hats.brand.util.JullayConstants;
@@ -84,8 +86,15 @@ public class BookingOptionsFragment extends BaseFragment {
                     if (multpersonDialog != null) {
                         multpersonDialog.dismiss();
                     }
-
-                    BookSeatActivity.replaceFragmentHistory(new ServiceItemFragmentNew().newInstance(mCentreID), (AppCompatActivity) getContext());
+                    CentreSingleton singleton = CentreSingleton.getInstance();
+                    Intent appotmnt_detail = new Intent(context, BookSeatActivity.class);
+                    appotmnt_detail.putExtra("CentreId", singleton.getBranchId());
+                    appotmnt_detail.putExtra("branch_name", singleton.getBusinessName());
+                    appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    ActivityOptions options =
+                            ActivityOptions.makeCustomAnimation(context, R.anim.slide_in_left, R.anim.slide_in_right);
+                    context.startActivity(appotmnt_detail, options.toBundle());
+                    // BookSeatActivity.replaceFragmentHistory(new ServiceItemFragmentNew().newInstance(mCentreID), (AppCompatActivity) getContext());
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -105,7 +114,7 @@ public class BookingOptionsFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_booking_options, container, false);
         String title_color = PrefsWrapper.with(getActivity()).getString(JullayConstants.DEFAULT_HEADING_COLOR, JullayConstants.DARK_HEADING);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle((Html.fromHtml(title_color + getString(R.string.select_booking_type) + "</font>")));
+       // ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle((Html.fromHtml(title_color + getString(R.string.select_booking_type) + "</font>")));
 
         //final LinearLayout booking_typ_layout = view.findViewById(R.id.booking_typ_layout);
         //final RelativeLayout booking_person/s_layout = view.findViewById(R.id.booking_person/s_layout);
@@ -119,7 +128,7 @@ public class BookingOptionsFragment extends BaseFragment {
         final LinearLayout count_two = view.findViewById(R.id.count_two);
         final LinearLayout count_three = view.findViewById(R.id.count_three);
         final LinearLayout count_four = view.findViewById(R.id.count_four);
-       // centre_name = view.findViewById(R.id.centre_name);
+        // centre_name = view.findViewById(R.id.centre_name);
 
         check_ts = view.findViewById(R.id.check_ts);
         check_ss = view.findViewById(R.id.check_ss);
@@ -239,8 +248,8 @@ public class BookingOptionsFragment extends BaseFragment {
                 check_ss.setImageResource(R.drawable.empty_tick);
                 img_ts.setBackgroundResource(R.drawable.gradient_vertical_bg);
                 type_ss.setBackgroundResource(R.drawable.primary_vertical_bg);
-                ts_text.setTextColor(getResources().getColor(R.color.pure_white));
-                ss_text.setTextColor(getResources().getColor(R.color.darkBlue));
+                ts_text.setTextColor(getResources().getColor(R.color.accent));
+                ss_text.setTextColor(getResources().getColor(R.color.accent));
                 PrefsWrapper.with(getContext()).save(JullayConstants.KEY_BOOKING_TYPE, JullayConstants.TIME_SPECIFIC);
             }
         });
@@ -252,8 +261,8 @@ public class BookingOptionsFragment extends BaseFragment {
                 check_ss.setImageResource(R.drawable.red_tick);
                 img_ts.setBackgroundResource(R.drawable.primary_vertical_bg);
                 type_ss.setBackgroundResource(R.drawable.gradient_vertical_bg);
-                ts_text.setTextColor(getResources().getColor(R.color.darkBlue));
-                ss_text.setTextColor(getResources().getColor(R.color.pure_white));
+                ts_text.setTextColor(getResources().getColor(R.color.accent));
+                ss_text.setTextColor(getResources().getColor(R.color.accent));
 
                 PrefsWrapper.with(getContext()).save(JullayConstants.KEY_BOOKING_TYPE, JullayConstants.STAFF_SPECIFIC);
             }
@@ -306,8 +315,15 @@ public class BookingOptionsFragment extends BaseFragment {
                             "MultiPersonSheetDialog");
                 } else {
                     PrefsWrapper.with(getActivity()).save(JullayConstants.KEY_NAMES_LIST, PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_NAME, ""));
-                    BookSeatActivity.replaceFragmentHistory(new ServiceItemFragmentNew().newInstance(mCentreID), (AppCompatActivity) getContext());
-
+                   // BookSeatActivity.replaceFragmentHistory(new ServiceItemFragmentNew().newInstance(mCentreID), (AppCompatActivity) getContext());
+                    CentreSingleton singleton = CentreSingleton.getInstance();
+                    Intent appotmnt_detail = new Intent(getActivity(), BookSeatActivity.class);
+                    appotmnt_detail.putExtra("CentreId", singleton.getBranchId());
+                    appotmnt_detail.putExtra("branch_name", singleton.getBusinessName());
+                    appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    ActivityOptions options =
+                            ActivityOptions.makeCustomAnimation(getActivity(), R.anim.slide_in_left, R.anim.slide_in_right);
+                    getActivity().startActivity(appotmnt_detail, options.toBundle());
                 }
             }
         });
@@ -323,6 +339,8 @@ public class BookingOptionsFragment extends BaseFragment {
                     PrefsWrapper.with(getContext()).save(JullayConstants.KEY_BOOKING_COUNT, numberPicker.getValue());
                 }
             };
+
+
 
 
     @Override

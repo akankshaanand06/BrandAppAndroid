@@ -74,10 +74,10 @@ public class StringHoriListAdapter extends RecyclerView.Adapter<StringHoriListAd
                 }
                 holder.mIdView.setTextColor(mContext.getResources().getColor(R.color.pure_white));
                 holder.mIdView.setTypeface(holder.mIdView.getTypeface(), Typeface.BOLD);
-                holder.mIdView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
+                holder.mIdView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
                 holder.mIdView.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, R.drawable.ic_white_dot);
             } else {
-                holder.mIdView.setTextColor(mContext.getResources().getColor(R.color.darkBlue));
+                holder.mIdView.setTextColor(mContext.getResources().getColor(R.color.white));
                 holder.mIdView.setTypeface(holder.mIdView.getTypeface(), Typeface.NORMAL);
                 holder.mIdView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
                 holder.mIdView.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);

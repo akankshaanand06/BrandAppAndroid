@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.six.hats.brand.R;
-import com.six.hats.brand.RTPActivity;
+import com.six.hats.brand.RTPFragment;
 import com.six.hats.brand.model.BasicResponse;
 import com.six.hats.brand.model.booking.BookingAppointment;
 import com.six.hats.brand.model.booking.BookingReq;
@@ -533,7 +533,7 @@ public class ResheduleConfirmPage extends Fragment {
                                 dialog.dismiss();*/
                         if (multiBookingDetails != null) {
                             getActivity().finish();
-                            Intent appotmnt_detail = new Intent(getContext(), RTPActivity.class);
+                            Intent appotmnt_detail = new Intent(getContext(), RTPFragment.class);
                             appotmnt_detail.putExtra("bookingID", multiBookingDetails.getAppointment().get(0).getAppointmentId());
                             appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             ActivityOptions options =
@@ -780,34 +780,34 @@ public class ResheduleConfirmPage extends Fragment {
         staffSpecQATRequest.setMainCategory(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_BIZ_CATEGORY, ""));
         staffSpecQATRequest.setSubCategory(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_BIZ_SUB_CATEGORY, ""));
         staffSpecQATRequest.setUserId(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_ID, ""));
-        staffSpecQATRequest.setSearchQATForStaffRequests(searchQatRequestList.get(currentBookingPos - 1));
+        staffSpecQATRequest.setStaffWiseQATReqList(searchQatRequestList.get(currentBookingPos - 1));
 
         MultiRequest multiRequest = new MultiRequest();
         int totalBooking = PrefsWrapper.with(getActivity()).getInt(JullayConstants.KEY_BOOKING_COUNT, 1);
         multiRequest.setTotalPerson(totalBooking);
         multiRequest.setCurrentPersonNumber(currentBookingPos);
         if (totalBooking > 1) {
-            multiRequest.setMultiRequest(true);
+            multiRequest.setIsMultiRequest(true);
             if (currentBookingPos == 1) {
-                staffSpecQATRequest.setNewBooking(true);
+                staffSpecQATRequest.setIsNewBooking(true);
             } else {
-                staffSpecQATRequest.setNewBooking(false);
+                staffSpecQATRequest.setIsNewBooking(false);
             }
         } else {
-            multiRequest.setMultiRequest(false);
+            multiRequest.setIsMultiRequest(false);
         }
         if (totalBooking > 1) {
             if (currentBookingPos == 1) {
-                staffSpecQATRequest.setNewBooking(true);
+                staffSpecQATRequest.setIsNewBooking(true);
             } else {
-                staffSpecQATRequest.setNewBooking(false);
+                staffSpecQATRequest.setIsNewBooking(false);
             }
         } else {
-            staffSpecQATRequest.setNewBooking(true);
+            staffSpecQATRequest.setIsNewBooking(true);
         }
 
-        staffSpecQATRequest.setMultiRequest(multiRequest);
-        staffSpecQATRequest.setBookingMedium(JullayConstants.KEY_BOOKING_ONLINE);
+        staffSpecQATRequest.setMultiPersonRequestCounter(multiRequest);
+        staffSpecQATRequest.setBkngMode(JullayConstants.KEY_BOOKING_ONLINE);
         CustomerDetails customerDetails = new CustomerDetails();
         customerDetails.setCustomerName(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_NAME, ""));
         customerDetails.setCustomerPhoneNo(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_PH, ""));

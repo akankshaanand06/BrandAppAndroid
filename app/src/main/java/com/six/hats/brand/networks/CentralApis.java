@@ -337,6 +337,7 @@ public class CentralApis {
         //updated
         Call<Appointment> loadBookingByStatus(@Query("appointmentId") String appointmentId, @Query("appointmentStatus") String appoitmentStatus, @Header("Authorization") String authHeader);
 
+
        /* @Headers("Content-Type: application/json")
         @POST("/user/getFeedBackQuestion")
             //updated

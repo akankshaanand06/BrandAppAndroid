@@ -39,7 +39,7 @@
             android:fontFamily="@font/avenir_regular"
             android:gravity="center"
             android:text="@string/history"
-            android:textColor="@color/grey_light"
+            android:textColor="@color/grey_text"
             android:textSize="18dp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -79,7 +79,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:gravity="center"
-            app:srcCompat="@drawable/ic_rating" />
+            app:srcCompat="@drawable/ic_no_data" />
 
         <TextView
             android:id="@+id/no_data_text"

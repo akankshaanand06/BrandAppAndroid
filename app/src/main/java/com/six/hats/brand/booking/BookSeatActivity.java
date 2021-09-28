@@ -25,8 +25,7 @@ public class BookSeatActivity extends BaseActivity implements PrebookingSlotsFra
 
         if (savedInstanceState == null) {
 
-            CentreSingleton singleton = CentreSingleton.getInstance();
-            replaceFragmentHistory(new BookingOptionsFragment().newInstance(singleton.getBranchId(), singleton.getBusinessName()), this);
+            replaceFragmentHistory(ServiceItemFragmentNew.newInstance(getIntent().getStringExtra("CentreId")), this);
         }
 
     }
@@ -47,7 +46,6 @@ public class BookSeatActivity extends BaseActivity implements PrebookingSlotsFra
                 FragmentTransaction transaction =
                         context.getSupportFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_in_right);
-
                 transaction.replace(R.id.bsContainer, fragment);
                 transaction.addToBackStack(null);
                 transaction.commitAllowingStateLoss();

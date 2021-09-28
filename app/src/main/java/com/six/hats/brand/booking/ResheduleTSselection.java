@@ -411,26 +411,26 @@ public class ResheduleTSselection extends Fragment {
         Advance advance = new Advance();
         advance.setAdvance(prebooking);
         if (PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0").equalsIgnoreCase("0")) {
-            advance.setBookingDate("");
+            advance.setApntDate("");
         } else {
             long date = CommonUtility.getTimestampFromString(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0"));
             String newDate = CommonUtility.formatFullDate(date);
-            advance.setBookingDate(newDate);
+            advance.setApntDate(newDate);
         }
         TimeSpan span = new TimeSpan();
         span.setHour(CommonUtility.getHrsFromStringDate(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0")));
         span.setMinutes(CommonUtility.getMinsFromStringDate(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_PREBOOKING_DATE, "0")));
         span.setTotal((span.getHour() * 60) + span.getMinutes());
-        advance.setStartSpan(span);
+        advance.setBkngRequestStartDateTime(span);
 
         MultiRequest multiRequest = new MultiRequest();
         int totalBooking = PrefsWrapper.with(getActivity()).getInt(JullayConstants.KEY_BOOKING_COUNT, 1);
         multiRequest.setTotalPerson(totalBooking);
         multiRequest.setCurrentPersonNumber(1);
         if (totalBooking > 1) {
-            multiRequest.setMultiRequest(true);
+            multiRequest.setIsMultiRequest(true);
         } else {
-            multiRequest.setMultiRequest(false);
+            multiRequest.setIsMultiRequest(false);
         }
 
         SearchQATBodyParam param = new SearchQATBodyParam();
@@ -440,9 +440,9 @@ public class ResheduleTSselection extends Fragment {
         param.setUserId(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_ID, ""));
         param.setAdvanceBookingRequest(advance);
         param.setServiceList(services);
-        param.setMultiRequest(multiRequest);
-        param.setNewBooking(true);
-        param.setBookingMedium(JullayConstants.KEY_BOOKING_ONLINE);
+        param.setMultiPersonRequestCounter(multiRequest);
+        param.setIsNewBooking(true);
+        param.setBkngMode(JullayConstants.KEY_BOOKING_ONLINE);
         CustomerDetails customerDetails = new CustomerDetails();
         customerDetails.setCustomerName(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_NAME, ""));
         customerDetails.setCustomerPhoneNo(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_USER_PH, ""));

@@ -21,7 +21,7 @@ public class TimeSpecQATResponse extends BasicResponse {
     @SerializedName("expectedWaitTime")
     @Expose
     private List<WaitTime> expectedWaitTime = new ArrayList<>();
-    @SerializedName("qatResponseList")
+    @SerializedName("availableQATsList")
     @Expose
     private List<QATList> qatResponseList = new ArrayList<>();
     @SerializedName("numberOfPersonAhedInQue")

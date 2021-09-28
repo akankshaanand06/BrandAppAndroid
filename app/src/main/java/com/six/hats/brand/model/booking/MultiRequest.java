@@ -7,7 +7,7 @@ public class MultiRequest {
 
     private int currentPersonNumber;
     private int totalPerson;
-    private Boolean multiRequest;
+    private Boolean isMultiRequest;
 
 
     public int getCurrentPersonNumber() {
@@ -26,11 +26,11 @@ public class MultiRequest {
         this.totalPerson = totalPerson;
     }
 
-    public Boolean getMultiRequest() {
-        return multiRequest;
+    public Boolean getIsMultiRequest() {
+        return isMultiRequest;
     }
 
-    public void setMultiRequest(Boolean multiRequest) {
-        this.multiRequest = multiRequest;
+    public void setIsMultiRequest(Boolean isMultiRequest) {
+        this.isMultiRequest = isMultiRequest;
     }
 }

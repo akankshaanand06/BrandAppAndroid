@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
+    style="@style/SheetDialog"
     android:background="@drawable/gradiant"
     android:paddingTop="30dp">
 
@@ -29,7 +30,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="@color/pure_white"
-            android:textColorHint="@color/darkBlue"
+            android:textColorHint="@color/white"
             android:textSize="18dp" />
 
         <EditText
@@ -47,7 +48,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="@color/pure_white"
-            android:textColorHint="@color/darkBlue"
+            android:textColorHint="@color/white"
             android:textSize="18dp"
             android:visibility="gone" />
 
@@ -66,7 +67,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="@color/pure_white"
-            android:textColorHint="@color/darkBlue"
+            android:textColorHint="@color/white"
             android:textSize="18dp"
             android:visibility="gone" />
 
@@ -86,7 +87,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="@color/pure_white"
-            android:textColorHint="@color/darkBlue"
+            android:textColorHint="@color/white"
             android:textSize="18dp"
             android:visibility="gone" />
 

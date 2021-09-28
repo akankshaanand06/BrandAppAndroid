@@ -6,9 +6,12 @@ import androidx.annotation.Keep;
 public class SearchQATBodyParam {
     private Advance advanceBookingRequest = new Advance();
     private Services serviceList = new Services();
-    private MultiRequest multiRequest = new MultiRequest();
-    private Boolean newBooking;
-    private String bookingMedium;
+    private MultiRequest multiPersonRequestCounter = new MultiRequest();
+    private Boolean isNewBooking;
+    /**
+     * Contains Values ONSITE and ONLINE
+     */
+    private String bkngMode;
     private CustomerDetails customerRequest = new CustomerDetails();
     private String mainCategory;
     private String subCategory;
@@ -38,12 +41,12 @@ public class SearchQATBodyParam {
         this.userId = userId;
     }
 
-    public String getBookingMedium() {
-        return bookingMedium;
+    public String getBkngMode() {
+        return bkngMode;
     }
 
-    public void setBookingMedium(String bookingMedium) {
-        this.bookingMedium = bookingMedium;
+    public void setBkngMode(String bkngMode) {
+        this.bkngMode = bkngMode;
     }
 
     public CustomerDetails getCustomerRequest() {
@@ -54,20 +57,20 @@ public class SearchQATBodyParam {
         this.customerRequest = customerRequest;
     }
 
-    public Boolean getNewBooking() {
-        return newBooking;
+    public Boolean getIsNewBooking() {
+        return isNewBooking;
     }
 
-    public void setNewBooking(Boolean newBooking) {
-        this.newBooking = newBooking;
+    public void setIsNewBooking(Boolean isNewBooking) {
+        this.isNewBooking = isNewBooking;
     }
 
-    public MultiRequest getMultiRequest() {
-        return multiRequest;
+    public MultiRequest getMultiPersonRequestCounter() {
+        return multiPersonRequestCounter;
     }
 
-    public void setMultiRequest(MultiRequest multiRequest) {
-        this.multiRequest = multiRequest;
+    public void setMultiPersonRequestCounter(MultiRequest multiPersonRequestCounter) {
+        this.multiPersonRequestCounter = multiPersonRequestCounter;
     }
 
     public Advance getAdvanceBookingRequest() {

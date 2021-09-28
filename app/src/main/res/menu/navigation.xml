@@ -6,22 +6,22 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
 
-    <item
-        android:id="@+id/nav_social"
-        android:icon="@drawable/ic_home"
-        android:title="Get Social" />
+  <!--  <item
+        android:id="@+id/reservations"
+        android:icon="@drawable/ic_apt_list"
+        android:title="Reservations" />-->
 
     <item
         android:id="@+id/nav_book"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_book"
         android:title="@string/book_a_time" />
     <item
         android:id="@+id/nav_lqp"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_lqp"
         android:title="@string/live_queue_status" />
-    <item
+    <!--<item
         android:id="@+id/nav_scan"
         android:icon="@drawable/ic_home"
-        android:title="@string/scan_qr" />
+        android:title="@string/scan_qr" />-->
 </menu>
 

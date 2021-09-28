@@ -3,12 +3,12 @@
     <item>
         <layer-list>
 
-            <item android:bottom="2dp" android:left="2dp">
+            <item android:bottom="0dp" android:left="2dp">
                 <shape>
                     <gradient android:angle="270"
                         android:endColor="@color/accent" android:startColor="@color/accent" />
                     <corners android:topLeftRadius="31dp" android:topRightRadius="31dp"/>
-                    <padding android:bottom="5dp" android:left="5dp"
+                    <padding android:bottom="0dp" android:left="5dp"
                         android:right="5dp" android:top="5dp" />
                 </shape>
             </item>

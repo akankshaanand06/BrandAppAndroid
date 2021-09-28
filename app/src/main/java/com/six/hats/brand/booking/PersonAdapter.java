@@ -67,7 +67,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
                         }
                     }
                     holder.mIdView.setBackgroundResource(R.drawable.round_top_sided_selected_yellow);
-                    holder.mIdView.setTextColor(mContext.getResources().getColor(R.color.darkBlue));
+                    holder.mIdView.setTextColor(mContext.getResources().getColor(R.color.pure_white));
 
                 } else {
 
