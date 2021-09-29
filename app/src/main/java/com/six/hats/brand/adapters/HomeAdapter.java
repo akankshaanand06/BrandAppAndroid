@@ -19,7 +19,9 @@ import com.six.hats.brand.BizGallery;
 import com.six.hats.brand.Feedbacks;
 import com.six.hats.brand.MenuActivity;
 import com.six.hats.brand.R;
+import com.six.hats.brand.ReviewActivity;
 import com.six.hats.brand.ServicesViewpagerActivity;
+import com.six.hats.brand.SpecialityViewpagerActivity;
 import com.six.hats.brand.StaffViewpagerActivity;
 import com.six.hats.brand.booking.BookSeatActivity;
 import com.six.hats.brand.fragments.HomeFragment;
@@ -76,13 +78,16 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                         Intent servAc = new Intent(context, ServicesViewpagerActivity.class);
                         servAc.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(servAc);
-
                         break;
                     case "Professionals":
                         Intent staff = new Intent(context, StaffViewpagerActivity.class);
                         staff.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(staff);
-
+                        break;
+                    case "Specialities":
+                        Intent spe = new Intent(context, SpecialityViewpagerActivity.class);
+                        spe.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(spe);
                         break;
                     case "Gallery":
                         Intent bizGallery = new Intent(context, BizGallery.class);
@@ -101,9 +106,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                         context.startActivity(feedback);
                         break;
 
-                    case "My Timeline":
-                        Intent appointments = new Intent(context, MenuActivity.class);
-                        appointments.putExtra("menu", "appointments");
+                    case "Reviews":
+                        Intent appointments = new Intent(context, ReviewActivity.class);
+                        appointments.putExtra("reviewof", "branch");
                         appointments.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(appointments);
                         break;

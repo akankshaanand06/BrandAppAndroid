@@ -36,6 +36,9 @@ public class ServicesData implements Serializable {
     @SerializedName("last")
     @Expose
     private Boolean isLast;
+    @SerializedName("isSpeciality")
+    @Expose
+    private Boolean isSpeciality;
     @SerializedName("active")
     @Expose
     private Boolean active;
@@ -54,6 +57,14 @@ public class ServicesData implements Serializable {
       @Expose
       private String fkServiceSubCatId;
   */
+
+    public Boolean getSpeciality() {
+        return isSpeciality;
+    }
+
+    public void setSpeciality(Boolean speciality) {
+        this.isSpeciality = speciality;
+    }
 
     public String getServImgUrl() {
         return servImgUrl;

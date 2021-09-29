@@ -2,6 +2,7 @@ package com.six.hats.brand;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -53,11 +54,11 @@ public class MenuActivity extends AppCompatActivity implements MyAppointmentList
                 getSupportActionBar().setTitle("My Reservations");
                 replaceFragmentHistory(new MyAppointmentList(), this);
 
-            } /*else if (getIntent().getStringExtra("menu").equals("privacy")) {
-                getSupportActionBar().setTitle((Html.fromHtml(title_color + getString(R.string.privacy_policy) + "</font>")));
-                replaceFragmentHistory(new PrivacyFragment(), this);
+            } else if (getIntent().getStringExtra("menu").equals("rtp")) {
+                getSupportActionBar().setTitle("");
+                replaceFragmentHistory(new RTPFragment(), this);
 
-            } else if (getIntent().getStringExtra("menu").equals("campaign")) {
+            } /*else if (getIntent().getStringExtra("menu").equals("campaign")) {
                 getSupportActionBar().setTitle((Html.fromHtml(title_color + getString(R.string.converation) + "</font>")));
                 replaceFragmentHistory(new CampaignsFragment(), this);
 

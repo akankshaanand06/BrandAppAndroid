@@ -412,7 +412,13 @@ public class DayPhaseSheetDialog extends BottomSheetDialogFragment {
 
         // getActivity().finish();
 
-        Intent appotmnt_detail = new Intent(getActivity(), QATSelectionActivity.class);
+
+        BookingNotesSheetDialog bottomSheet = new BookingNotesSheetDialog(mCentreId, mSelectedItemIDs, totalDuration, totalPrice);
+        bottomSheet.show(getActivity().getSupportFragmentManager(),
+                "DayPhaseSheetDialog");
+
+
+      /*  Intent appotmnt_detail = new Intent(getActivity(), QATSelectionActivity.class);
 
         appotmnt_detail.putExtra("page", bookingType);
         appotmnt_detail.putExtra("mCentreID", mCentreId);
@@ -422,7 +428,7 @@ public class DayPhaseSheetDialog extends BottomSheetDialogFragment {
         appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         ActivityOptions options =
                 ActivityOptions.makeCustomAnimation(getActivity(), R.anim.slide_in_left, R.anim.slide_in_right);
-        startActivity(appotmnt_detail, options.toBundle());
+        startActivity(appotmnt_detail, options.toBundle());*/
 
     }
 

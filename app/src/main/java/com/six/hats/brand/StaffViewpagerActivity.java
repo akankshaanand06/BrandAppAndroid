@@ -39,7 +39,7 @@ public class StaffViewpagerActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.services) + "</font>")));
+        getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.professionals) + "</font>")));
 
         sectionsPagerAdapter = new StaffSectionsPagerAdapter(this, staffDetails, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.service_pager);

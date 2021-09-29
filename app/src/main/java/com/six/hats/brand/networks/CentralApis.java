@@ -6,6 +6,7 @@ import androidx.annotation.Keep;
 
 import com.six.hats.brand.Feedbacks;
 import com.six.hats.brand.fragments.HomeFragment;
+import com.six.hats.brand.model.BizReviews;
 import com.six.hats.brand.model.CndDataCategoryItem;
 import com.six.hats.brand.model.booking.Appointment;
 import com.six.hats.brand.model.BasicResponse;
@@ -246,6 +247,16 @@ public class CentralApis {
         Call<BookingLstDetails> loadMyBookingData(@Query("userId") String userId, @Header("Authorization") String authHeader);
 
         @Headers("Content-Type: application/json")
+        @GET("/common/getAllReviews")
+            //updated
+        Call<List<BizReviews>> loadAllReviewsForBranch(@Query("branchId") String branchId, @Header("Authorization") String authHeader);
+
+        @Headers("Content-Type: application/json")
+        @GET("/common/getAllReviewsByStaffId")
+            //updated
+        Call<List<BizReviews>> loadAllReviewsForStaff(@Query("branchId") String branchId, @Query("staffId") String staffId, @Header("Authorization") String authHeader);
+
+        @Headers("Content-Type: application/json")
         @GET("/user/getHistoryOfAllAppoitmnetOfUser")
             //updated
         Call<BookingLstDetails> loadHistoricBookingData(@Query("userId") String userId, @Query("appointmentStatus") String appointmentStatus, @Header("Authorization") String authHeader);
@@ -290,9 +301,14 @@ public class CentralApis {
         Call<TimeSpecQATResponse> searchTSQAT(@Path("branchId") String branchId, @Path("totalTime") int totalTime, @Body SearchQATBodyParam searchQATRequest, @Header("Authorization") String authHeader);
 
         @Headers("Content-Type: application/json")
-        @GET("/admin/getActiveServicesByBranch")
+        @GET("/common/getActiveServicesByBranch")
             //Updated
         Call<MyServiceResponse> loadMyService(@Query("branchId") String branchId, @Query("mainService") String mainService, @Header("Authorization") String authHeader);
+
+        @Headers("Content-Type: application/json")
+        @GET("/common/getSpecialityServicesByBranch")
+            //Updated
+        Call<MyServiceResponse> loadMySpecialityService(@Query("branchId") String branchId, @Query("mainService") String mainService, @Header("Authorization") String authHeader);
 
         @Headers("Content-Type: application/json")
         @POST("/booking/signalFromApp")

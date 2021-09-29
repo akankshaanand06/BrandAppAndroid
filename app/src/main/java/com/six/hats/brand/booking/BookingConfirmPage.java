@@ -29,6 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.six.hats.brand.BaseFragment;
+import com.six.hats.brand.MenuActivity;
 import com.six.hats.brand.R;
 import com.six.hats.brand.RTPFragment;
 import com.six.hats.brand.model.BasicResponse;
@@ -366,6 +367,7 @@ public class BookingConfirmPage extends BaseFragment {
         appointment.setTempAppointmentId(mBookingId);
         appointment.setUserId(userId);
         appointment.setStaffIdList(staffID);
+        appointment.setBookingNotes(Arrays.asList(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_BOOKING_NOTES, "")));
 
 
         String payloadStr = CommonUtility.convertToJson("confirmApptSS", appointment);
@@ -419,7 +421,8 @@ public class BookingConfirmPage extends BaseFragment {
                                     date.getTime(),
                                     CommonUtility.getStartRequestCode(multiBookingDetails.getAppointment().get(0).getAppointmentId()), String.valueOf(multiBookingDetails.getAppointment().get(0).getAppontmentEnitities().get(0).getBookingSlot().getStartSpanDate()));
                             getActivity().finish();
-                            Intent appotmnt_detail = new Intent(getContext(), RTPFragment.class);
+                            Intent appotmnt_detail = new Intent(getContext(), MenuActivity.class);
+                            appotmnt_detail.putExtra("menu", "rtp");
                             appotmnt_detail.putExtra("bookingID", mBookingId.replace("Temp_", ""));
                             appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             ActivityOptions options =
@@ -578,6 +581,8 @@ public class BookingConfirmPage extends BaseFragment {
             req.setStaffId(mSelectedStaffsList.get(i));
             req.setTempBookingId(selectedBookingID.get(i));
             req.setUserName(names.get(i));
+            if (i == 0)
+                req.setBookingNotes(Arrays.asList(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_BOOKING_NOTES, "")));
             bookingReqList.add(req);
 
         }
@@ -630,7 +635,8 @@ public class BookingConfirmPage extends BaseFragment {
                                         CommonUtility.getStartRequestCode(details.getAppointmentId()),
                                         String.valueOf(details.getAppontmentEnitities().get(0).getBookingSlot().getStartSpanDate()));
                             }
-                            Intent appotmnt_detail = new Intent(getContext(), RTPFragment.class);
+                            Intent appotmnt_detail = new Intent(getContext(), MenuActivity.class);
+                            appotmnt_detail.putExtra("menu", "rtp");
                             appotmnt_detail.putExtra("bookingID", multiBookingDetails.getAppointment().get(0).getAppointmentId());
                             appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             ActivityOptions options =

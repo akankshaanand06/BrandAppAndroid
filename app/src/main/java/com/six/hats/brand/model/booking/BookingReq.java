@@ -11,6 +11,15 @@ public class BookingReq {
     private List<String> staffId = new ArrayList<>();
     private String tempBookingId;
     private String userName;
+    private List<String> bookingNotes = new ArrayList<>();
+
+    public List<String> getBookingNotes() {
+        return bookingNotes;
+    }
+
+    public void setBookingNotes(List<String> bookingNotes) {
+        this.bookingNotes = bookingNotes;
+    }
 
     public List<String> getStaffId() {
         return staffId;

@@ -12,6 +12,16 @@ public class BookingAppointment {
     private String tempAppointmentId;
     private String userId;
     private List<String> staffIdList = new ArrayList<>();
+    private List<String> bookingNotes = new ArrayList<>();
+
+
+    public List<String> getBookingNotes() {
+        return bookingNotes;
+    }
+
+    public void setBookingNotes(List<String> bookingNotes) {
+        this.bookingNotes = bookingNotes;
+    }
 
     public String getBookingType() {
         return bookingType;

@@ -33,6 +33,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.six.hats.brand.BaseFragment;
+import com.six.hats.brand.MenuActivity;
 import com.six.hats.brand.R;
 import com.six.hats.brand.RTPFragment;
 import com.six.hats.brand.model.BasicResponse;
@@ -61,6 +62,7 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -998,7 +1000,8 @@ public class TimeSpecificSelectionMulti extends BaseFragment {
                                         appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(appotmnt_detail, options.toBundle());
                                     } else {*/
-            Intent appotmnt_detail = new Intent(getContext(), RTPFragment.class);
+            Intent appotmnt_detail = new Intent(getContext(), MenuActivity.class);
+            appotmnt_detail.putExtra("menu", "rtp");
             appotmnt_detail.putExtra("bookingID", multiBookingDetails.getAppointment().get(0).getAppointmentId().replace("temp_", ""));
             appotmnt_detail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(appotmnt_detail, options.toBundle());
@@ -1088,7 +1091,10 @@ public class TimeSpecificSelectionMulti extends BaseFragment {
             req.setStaffId(strings);
             req.setTempBookingId(selectedBookingID.get(i));
             req.setUserName(names.get(i));
+            if (i == 0)
+                req.setBookingNotes(Arrays.asList(PrefsWrapper.with(getActivity()).getString(JullayConstants.KEY_BOOKING_NOTES, "")));
             bookingReqList.add(req);
+
         }
 
         request.setMultiAppointmentBaseRequests(bookingReqList);

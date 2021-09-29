@@ -64,6 +64,10 @@
     <string name="pwd_length_error">Password length must be 8 Characters.</string>
     <string name="about_us">Fathom means "understanding (a difficult problem) after much thought". With such aptitude, we have crafted this utilitarian app. A difficult problem that we have solved is of "Waiting Time" - which is very annoying and displeasing. With the aid of advanced, scientific queuing models and algorithms \'waiting time\' had been reduced to negligible. \nUnlike many appointment booking apps, Jullay is a time management app. It provides you real-time progress of the queue. So that, you can plan your visit with zero waiting time; utilize your (used-to-be) waiting time for completing other chores and tasks; get more time to enjoy weekends and life; and much more. \nWe have made it possible by collaborating with your favourite service providers: Salon, Doctors, Car Wash, Consultants like CA, Lawyers, etc.., Labs, and such more.</string>
     <string name="forgot_password">Forgot Password</string>
+    <string name="type_important_notes">Type Important Notes.</string>
+    <string name="type">Type....</string>
+
+
     <!-- FB CODE-->
     <string name="facebook_app_id">1343659985787676</string>
     <string name="fb_login_protocol_scheme">fb1343659985787676</string>
@@ -282,6 +286,8 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="appointments">Appointments</string>
     <string name="gallery">Gallery</string>
+    <string name="professionals">Professionals</string>
+    <string name="skip">Skip</string>
 
 
 </resources>

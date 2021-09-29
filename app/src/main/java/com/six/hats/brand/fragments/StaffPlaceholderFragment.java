@@ -1,5 +1,6 @@
 package com.six.hats.brand.fragments;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Rating;
@@ -20,6 +21,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.six.hats.brand.R;
+import com.six.hats.brand.ReviewActivity;
 import com.six.hats.brand.model.booking.StaffDisplayResponse;
 import com.six.hats.brand.ui.main.PageViewModel;
 import com.squareup.picasso.Callback;
@@ -101,6 +103,17 @@ public class StaffPlaceholderFragment extends Fragment {
             e.printStackTrace();
         }
 
+
+        root.findViewById(R.id.review).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent appointments = new Intent(getActivity(), ReviewActivity.class);
+                appointments.putExtra("reviewof", "staff");
+                appointments.putExtra("staffId", staffDetails.getBranchStaff().getStaffId());
+                appointments.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(appointments);
+            }
+        });
 
         return root;
     }

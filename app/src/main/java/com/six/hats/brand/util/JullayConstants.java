@@ -32,7 +32,9 @@ public interface JullayConstants {
     String KEY_SERVICES = "SERVICE";
     String COUNTRY_INDIA = "2";
     String CITY_VADODARA = "5";
-    //Shared Preference Keys
+    //Shared Preference
+    String KEY_BOOKING_NOTES = "BOOKING_NOTES";
+
     String KEY_LANG = "key_lang";
     String KEY_USER_ID = "user_id";
     String KEY_PWD = "pwd";
